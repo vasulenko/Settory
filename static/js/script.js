@@ -17,6 +17,7 @@ $(window).scroll(function() {
           auto: true,
           autoControls: true,
           touchEnabled: false,
-          controls: false
+          controls: false,
+          pause: 5000
     });
 });

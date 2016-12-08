@@ -3,12 +3,12 @@ var slider = {
     titleArr: ['для житлових кімнат','для кухні', 'для ванної та туалету', 'для коридору'],
     frame: 0, // текущий кадр для отбражения - индекс картинки из массива
     set: function (image,title) { // установка нужного фона слайдеру
-        setTimeout(function () {document.getElementById('src').style.opacity = "1";
+        setTimeout(function () {/*document.getElementById('src').style.opacity = "1";*/
          document.getElementById('sliderTitle').style.opacity = "1";
-         document.getElementById('src').style.backgroundImage = "url(" + image + ")";
+        /* document.getElementById('src').style.backgroundImage = "url(" + image + ")";*/
          document.getElementById('sliderTitle').innerHTML="" + title + "";
-        document.getElementById('src').style.transition = "opacity 0.5s linear";
-        document.getElementById('src').style.transition = "opacity 0.5s linear"},500)
+        /*document.getElementById('src').style.transition = "opacity 0.5s linear";*/
+        document.getElementById('sliderTitle').style.transition = "opacity 0.5s linear"},500)
         
     },
     init: function () { // запуск слайдера с картинкой с нулевым индексом
@@ -22,8 +22,8 @@ var slider = {
     right: function () { // крутим на один кадр вправо
         this.frame++;
         if (this.frame == this.slides.length) this.frame = 0;
-        document.getElementById('src').style.opacity = "0";
-        document.getElementById('src').style.transition = "opacity 0.5s linear";
+        /*document.getElementById('src').style.opacity = "0";
+        document.getElementById('src').style.transition = "opacity 0.5s linear";*/
         document.getElementById('sliderTitle').style.opacity = "0";
         document.getElementById('sliderTitle').style.transition = "opacity 0.5s linear";
      this.set(this.slides[this.frame],this.titleArr[this.frame]); 
