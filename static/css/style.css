@@ -99,7 +99,9 @@ html body {
     align-items: center;
     max-width: 25%;
 }
-
+.navbarLogo img {
+    height: 100%;
+}
 .navbarDownButton {
     width: auto;
     height: 100%;
@@ -123,7 +125,7 @@ html body {
     flex-flow: row nowrap;
     align-items: center;
     background-color: white;
-    margin-top: 10%;
+    margin-top: 7%;
 }
 
 .wrapperHeaderLeftBlock {
@@ -230,6 +232,8 @@ html body {
     height: 100%;
     width: 30%;
     min-height: 540px;
+ 
+    margin-bottom: auto;
 }
 .secondChild {
      margin-left: 5%;
@@ -642,7 +646,7 @@ html body .wrapperInfoBlock .box {
     margin-bottom: auto;
      max-width: 50%;
 }
-
+/*background-color: #006bbd;*/
 .second_ord {
     order: 1 !important;
 }
@@ -651,9 +655,11 @@ html body .wrapperInfoBlock .box {
     color: white;
 }
 .icon.is-large i:hover {
-    color:white;
+    color:#006bbd;
 }
-
+.footerContentBox .SettoryId:hover {
+    color:#006bbd;
+}
 .tile.is-child.box {
     padding-top: 2%;
     text-align: center;
@@ -668,9 +674,9 @@ html body .wrapperInfoBlock .box {
     display:none;
 }
 @media screen and (max-width: 1050px) {
-    .wrapperHeader {
+   /* .wrapperHeader {
         height: 70vh;
-    }
+    }*/
     .wrapperHeaderRightBlock {
         height: 80%;
     }
