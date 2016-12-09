@@ -730,15 +730,37 @@ html body .wrapperInfoBlock .box {
     .header {
         flex-flow: column nowrap;
     }
+    .navbarDownButton {
+        margin-right: 5%;
+    }
+    .mainContentChild {
+        min-height: inherit;
+    }
+    .Safety1col .h4_main2 {
+        font-size: 2rem;
+    }
     .mainContentChild hr {
         margin-left: auto;
         margin-right: auto;
+    }
+    .Safety2col {
+        flex-flow: column nowrap;
+    }
+    .Safety2col2Row {
+        display: none;
+    }
+    .Safety3col {
+        width: auto;
+        margin-top: 2%;
     }
     .mainContentChildImg {
         width: 70%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0;
+    }
+    .h4_main3 {
+        font-size: 2rem;
     }
     .mainContentChildText {
         margin: 0;
@@ -756,7 +778,7 @@ html body .wrapperInfoBlock .box {
         flex-flow: column nowrap;
     }
     .headerLeftBlock.content .headerContentBlock h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         text-align: center;
     }
     .headerLeftBlock.content .headerContentBlock p {
@@ -770,7 +792,7 @@ html body .wrapperInfoBlock .box {
         margin-right: 2%;
     }
     .h4_main2 {
-        font-size: 1.4em;
+        font-size: 1.3rem;
     }
     .wrapperHeaderLeftBlock .headerContentBlock {
         flex-flow:column nowrap;
@@ -825,10 +847,12 @@ html body .wrapperInfoBlock .box {
         font-size: 1.4rem;
     }
     .header {
-        
         height: 70%;
     }
-    .wrapperHeader {
-        height: 50vh;
+    .navbar {
+        height: 10%;
+    }
+    .navbarDownButton {
+        max-width: none;
     }
 }
