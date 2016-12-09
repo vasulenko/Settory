@@ -27,6 +27,16 @@ html body {
     width: 100%;
   
 }
+.navbarLogo span,.footerLogo span{
+    height: 90%;
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 1;
+    font-size: 20px;
+}
+.footerLogo span {
+    color:white;
+}
 .headerTitle {
     margin-top: 1%;
     margin-right: 1%;
@@ -102,7 +112,7 @@ html body {
 
 .navbarLogo {
     width: auto;
-    margin-left: 5%;
+    margin-left: 15%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -361,7 +371,7 @@ em {
 }
 
 .footerBlock {
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -687,11 +697,14 @@ html body .wrapperInfoBlock .box {
     display:none;
 }
 @media screen and (max-width: 1050px) {
-   /* .wrapperHeader {
-        height: 70vh;
-    }*/
+    .wrapperHeader {
+        height: auto;
+    }
     .wrapperHeaderRightBlock {
-        height: 80%;
+        /*height: 80%;*/
+        height: auto;
+        margin-top: auto;
+        margin-bottom: auto;
     }
     .wrapperCardBlock .card {
         margin-left: auto;
@@ -705,10 +718,41 @@ html body .wrapperInfoBlock .box {
         font-size: 1.2rem;
        
     }
+    .navbarLogo span {
+        height: auto;
+    }
+    .header {
+        margin-top: 15%;
+    }
     
 }
 @media screen and (max-width: 800px){
     .header {
+        flex-flow: column nowrap;
+    }
+    .mainContentChild hr {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mainContentChildImg {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0;
+    }
+    .mainContentChildText {
+        margin: 0;
+        text-align: center;
+    }
+    .mainContentParrent {
+        flex-flow: column nowrap;
+    }
+    .mainContentChild {
+        flex-flow: row nowrap;
+        width: auto;
+        margin-top: 8%;
+    }
+    .wrapperInfoBlock {
         flex-flow: column nowrap;
     }
     .headerLeftBlock.content .headerContentBlock h1 {
@@ -749,8 +793,30 @@ html body .wrapperInfoBlock .box {
         height: auto;
     }
 }
+@media screen and (max-width: 700px) {
+    .mainContentChild .mainContentChildText.content h1 {
+        font-size: 24px;
+    }
+    .navbarLogo span {
+        height: auto;
+        font-size: 15px;
+    }
+    .footerContent {
+        justify-content: center;
+    }
+    .wrapperFooter .footerBlock .iconBlock {
+        display: none;
+    }
+}
 @media screen and (max-width: 500px) {
     .headerContentBlock h1 {
         font-size: 1.4rem;
+    }
+    .header {
+        
+        height: 70%;
+    }
+    .wrapperHeader {
+        height: 50vh;
     }
 }
