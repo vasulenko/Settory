@@ -28,7 +28,7 @@ html body {
   
 }
 .navbarLogo span,.footerLogo span{
-    height: 90%;
+    /*height: 90%;*/
     margin-top: auto;
     margin-bottom: auto;
     line-height: 1;

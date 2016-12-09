@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+    cursor: pointer;
+}
+
+html body {
+    line-height: 2;
+     background-color: white;
+}
+header .nav {
+    width: 90%;
+    border: 1px solid #ccc;
+    background-color: #f4f4f5;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 2px;
+    margin-top: 1%;
+   
+}
+.nav-left .nav-item {
+    font-size: 1.2rem;
+}
+.nav-item {
+    font-weight: bold;
+}
+table#fc {
+    width: auto;
+    box-shadow: 0 0 5px #ccc;
+}
+.wrapperOrderBlock {
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+}
+.orderBlock {
+    width: 60%;
+    margin-right: auto;
+    height: auto;
+}
+.orderBox {
+    width: 30%;
+    margin-left: auto;
+    height: auto;
+    border: 1px solid #ccc;
+    background-color: #f4f4f5;
+}
