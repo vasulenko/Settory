@@ -32,7 +32,7 @@ html body {
     margin-top: auto;
     margin-bottom: auto;
     line-height: 1;
-    font-size: 20px;
+    font-size: 1rem;
 }
 .footerLogo span {
     color:white;
@@ -769,6 +769,9 @@ html body .wrapperInfoBlock .box {
         margin-left: 2%;
         margin-right: 2%;
     }
+    .h4_main2 {
+        font-size: 1.4em;
+    }
     .wrapperHeaderLeftBlock .headerContentBlock {
         flex-flow:column nowrap;
         display: flex;
@@ -801,14 +804,23 @@ html body .wrapperInfoBlock .box {
         height: auto;
         font-size: 15px;
     }
+    .navbar {
+        height: 7%;
+    }
     .footerContent {
         justify-content: center;
     }
     .wrapperFooter .footerBlock .iconBlock {
         display: none;
     }
+    .wrapperCardBlock .card {
+        width: 80%;
+    }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
+    
+} 
+@media screen and (max-height: 600px) {
     .headerContentBlock h1 {
         font-size: 1.4rem;
     }
