@@ -46,25 +46,25 @@
             
                 <label class="label">Адреса квартири</label>
                     <p class="control">
-                      <input class="input" type="text" placeholder="вулиця Богдана Хмельницького 64,квартира13">
+                      <input class="input" type="text" placeholder="вулиця Богдана Хмельницького 64,квартира13" required>
                     </p>
+                    <label class="label">Кількість кімнат</label>
                     <p class="control has-addons">
- <a class="button" id="minus">
-    -
-  </a>
-  <input class="input is-expanded" type="text" placeholder="">
-  <a class="button" id=plus>
-    +
-  </a>
-</p>
+                     <a class="button" id="minus">
+                        -
+                      </a>
+                      <input class="input is-expanded" type="" placeholder="" required maxlength="1" value="1" name="roomQuantity" min="1">
+                      <a class="button" id=plus>
+                        +
+                      </a>
+                    </p>
                     <label class="label">На яку дату?</label>
                     <p class="control">
-                      <input type="text" class="input" value="dd-mm-yy" onfocus="this.select();lcs(this)"
-                        onclick="event.cancelBubble=true;this.select();lcs(this)">
+                      <input type="text" class="input" required  onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)">
                     </p>
                     <label class="label">На який час?</label>
                     <p class="control">
-                      <input class="input forTime" type="text" placeholder="Text input">
+                      <input class="input forTime" type="text" required>
                     </p>
                     <label class="label">Додаткові опції</label>
                     <p class="control">
@@ -93,7 +93,7 @@
            
         </div>
         <div class="orderBox" id="cost">
-            
+            <h2>500 грн</h2>
             <p>Ми зв'яжемось з вами за годину до прибирання :)</p>  
             <p class="control">
               <input class="input" type="text" placeholder="Промокод,якщо є">
@@ -110,6 +110,6 @@
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
     <script src="js/timepicker.min.js"></script>
     <script src="js/script.js"></script>  
-    <script src="js/reactComponent.js"></script>
+  
 </body>
 </html>

@@ -13,6 +13,9 @@ html body {
     line-height: 2;
      background-color: white;
 }
+header {
+    padding-top: 1%;
+}
 header .nav {
     width: 90%;
     border: 1px solid #ccc;
@@ -20,7 +23,7 @@ header .nav {
     margin-left: auto;
     margin-right: auto;
     border-radius: 2px;
-    margin-top: 1%;
+/*    margin-top: 1%;*/
    
 }
 .nav-left .nav-item {
