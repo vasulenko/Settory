@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     
@@ -12,7 +12,7 @@
     <link href="css/bulma.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="css/font-Ubuntu.css" rel="stylesheet">
-    <link href="css/jquery.bxslider.css" rel="stylesheet">
+    <link href="css/timepicker.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -38,33 +38,78 @@
                   Вийти
                 </a>
             </div>
-       
         </nav>
     </header>
     <div class="wrapperOrderBlock">
+       <form id="orderForm">
         <div class="orderBlock">
-            <form id="orderForm">
+            
                 <label class="label">Адреса квартири</label>
                     <p class="control">
                       <input class="input" type="text" placeholder="вулиця Богдана Хмельницького 64,квартира13">
                     </p>
-                    <label class="label">На яку дату?</label>
-<p class="control">
-  <input type="text" class="input" value="dd-mm-yy" onfocus="this.select();lcs(this)"
-	onclick="event.cancelBubble=true;this.select();lcs(this)">
+                    <p class="control has-addons">
+ <a class="button" id="minus">
+    -
+  </a>
+  <input class="input is-expanded" type="text" placeholder="">
+  <a class="button" id=plus>
+    +
+  </a>
 </p>
-                    
-            </form>
+                    <label class="label">На яку дату?</label>
+                    <p class="control">
+                      <input type="text" class="input" value="dd-mm-yy" onfocus="this.select();lcs(this)"
+                        onclick="event.cancelBubble=true;this.select();lcs(this)">
+                    </p>
+                    <label class="label">На який час?</label>
+                    <p class="control">
+                      <input class="input forTime" type="text" placeholder="Text input">
+                    </p>
+                    <label class="label">Додаткові опції</label>
+                    <p class="control">
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        Миття вікон
+                      </label>
+                       <label class="checkbox">
+                        <input type="checkbox">
+                        Миття посуду
+                      </label>
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        Чистка холодильники
+                      </label>
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        Чистка духовки
+                      </label>
+                      <label class="checkbox">
+                        <input type="checkbox">
+                        Прасування
+                      </label>
+                      
+                    </p>
+           
         </div>
-        <div class="orderBox">
+        <div class="orderBox" id="cost">
             
-        <input type="submit" form="orderForm">
+            <p>Ми зв'яжемось з вами за годину до прибирання :)</p>  
+            <p class="control">
+              <input class="input" type="text" placeholder="Промокод,якщо є">
+            </p>    
+        <input type="submit" class="button is-info" value="Забронювати">
+        
         </div>
+         </form>
     </div>
       
         
     <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/jquery.bxslider.min.js"></script>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="js/timepicker.min.js"></script>
+    <script src="js/script.js"></script>  
+    <script src="js/reactComponent.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-* {
+ * {
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -39,16 +39,40 @@ table#fc {
     margin-left: auto;
     margin-right: auto;
     margin-top: 3%;
+    
+}
+#orderForm {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 .orderBlock {
     width: 60%;
     margin-right: auto;
-    height: auto;
+    height: 80%;
 }
 .orderBox {
     width: 30%;
     margin-left: auto;
-    height: auto;
+    height: 60%;
     border: 1px solid #ccc;
     background-color: #f4f4f5;
+    padding: 4%;
+    border-radius: 6px;
+}
+.orderBox h2 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+.orderBox p {
+    font-size: 1.1rem;
+}
+input[type=checkbox]:checked + label:before {
+	content: "\2713";
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+	font-size: 15px;
+	color: #f3f3f3;
+	text-align: center;
+    line-height: 15px;
 }

@@ -21,7 +21,12 @@ $(window).scroll(function() {
           pause: 5000
     });
 });
-
+$('.forTime').timepicker({
+    'timeFormat': 'H:i:s',
+    'step': 15,
+    'forceRoundTime': true,
+    'show2400' : true
+});
 
 /* --- Swazz Javascript Calendar ---
 /* --- v 1.0 3rd November 2006
@@ -120,10 +125,6 @@ document.write('<tr><td colspan="7" align="center" style="cursor:pointer;font:13
 document.write('</table>');
 
 document.all?document.attachEvent('onclick',checkClick):document.addEventListener('click',checkClick,false);
-
-
-
-
 var updobj;
 function lcs(ielem) {
 	updobj=ielem;
@@ -149,9 +150,7 @@ function lcs(ielem) {
 
 		prepcalendar(curdtarr[0],curdtarr[1]-1,curdtarr[2]);
 	}
-
 }
-
 function evtTgt(e){
 	var el;
 	if(e.target)el=e.target;
@@ -170,7 +169,6 @@ function cs_click(e) {
 	updobj.value=calvalarr[evtTgt(EvtObj(e)).id.substring(2,evtTgt(EvtObj(e)).id.length)];
 	getObj('fc').style.display='none';
 }
-
 var mn=new Array('Січень','Лютий','Березь','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень');
 var mnn=new Array('31','28','31','30','31','30','31','31','30','31','30','31');
 var mnl=new Array('31','29','31','30','31','30','31','31','30','31','30','31');
@@ -185,7 +183,6 @@ function f_cps(obj) {
 	obj.style.border='1px solid #f4f4f5';//'1px solid #606060';
 	obj.style.cursor='pointer';
 }
-
 function f_cpps(obj) {
 	obj.style.background='#C4D3EA';
 	obj.style.font='10px Arial';
@@ -195,7 +192,6 @@ function f_cpps(obj) {
 	obj.style.border='1px solid #6487AE';
 	obj.style.cursor='default';
 }
-
 function f_hds(obj) {
 	obj.style.background='#f4f4f5';
 	obj.style.font='bold 10px Arial';
@@ -204,7 +200,6 @@ function f_hds(obj) {
 	obj.style.border='1px solid #6487AE';
 	obj.style.cursor='pointer';
 }
-
 // day selected
 function prepcalendar(hd,cm,cy) {
 	now=new Date();
