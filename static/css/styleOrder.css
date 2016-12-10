@@ -79,3 +79,45 @@ input[type=checkbox]:checked + label:before {
 	text-align: center;
     line-height: 15px;
 }
+.wrapperNav {
+    margin-top: 3%;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navText {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.navText p strong {
+    font-weight: bold;
+    font-size: 1.7rem;
+    height: 100%;
+    margin-right: 2%;
+}
+.navText p {
+    font-size: 1.2rem;
+    height: 100%;
+}
+.navButton {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2%;
+    height: auto;
+}
+.wrapperTable {
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+}
