@@ -140,6 +140,22 @@ input[type=checkbox]:checked + label:before {
 #promoCreate p input {
     width: 100%;
 }
+#search {
+     width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+#search p  {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+#search p input {
+    width: 100%;
+
+}
 .wrapperTable {
     width: 100%;
     height: auto;

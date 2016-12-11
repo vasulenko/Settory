@@ -40,38 +40,23 @@
             </div>
         </nav>
     </header>
-   <div class="wrapperPromoCreate">
-       <h2>Промокоди</h2>
-       <form id="promoCreate">
-           <p class="control has-addons">
-              <input class="input" type="text" placeholder="процент">
-              <a class="button">
-                %
-              </a>
-            </p>
-             <p class="control has-addons">
-              <input type="text" class="input" required  onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" placeholder="dd/mm/yyyy">
-              <a class="button">
-                DATE
-              </a>
-            </p>
-            <p class="control has-addons">
-              <input class="input" type="text" placeholder="код">
-              <a class="button">
-                CODE
-              </a>
-            </p>
-                <p class="control">
-              <button class="button is-success" type="submit">
-            Додати промо
-              </button>
-            </p>
-       </form>
-   </div>
-    <div class="wrapperTable">
-        
-    </div>
-    
+    <div class="wrapperNav">
+        <div class="navText">
+           <p><strong>Наші клієнти</strong>
+            Інформація про них</p>
+        </div>
+    </div>  
+    <form id="search"> 
+   
+      <p class="control has-addons">
+        <input class="input" type="text" placeholder="Phone number or Email adress">
+        <button class="button is-success" type="submit">
+            Пошук
+        </button>
+      </p>
+      
+    </form> 
+    <div class="wrapperTable"></div>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="https://unpkg.com/react@15/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
