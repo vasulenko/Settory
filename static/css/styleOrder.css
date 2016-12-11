@@ -116,6 +116,30 @@ input[type=checkbox]:checked + label:before {
     margin-top: 2%;
     height: auto;
 }
+.wrapperPromoCreate {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+   
+}
+.wrapperPromoCreate h2 {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+#promoCreate {
+     width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+#promoCreate p input {
+    width: 100%;
+}
 .wrapperTable {
     width: 100%;
     height: auto;
