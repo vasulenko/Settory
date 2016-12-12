@@ -1,4 +1,4 @@
- * {
+  * {
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -106,6 +106,7 @@ input[type=checkbox]:checked + label:before {
 .navText p {
     font-size: 1.2rem;
     height: 100%;
+    width: 100%;
 }
 .navButton {
     width: 100%;
@@ -160,4 +161,29 @@ input[type=checkbox]:checked + label:before {
     width: 100%;
     height: auto;
     margin-top: 2%;
+}
+#TableContent {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.promoCodShow:nth-child(1) {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.promoCodShow:nth-child(n+2) {
+    border-bottom:1px solid #ccc;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    border-top: none;
+}
+.promoCodShow {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 1%;
 }
