@@ -24,3 +24,4 @@ var ShowPromo = React.createClass({
     },
 });
 ReactDOM.render(<ShowPromo items={ promoArr } />, document.getElementById('TableContent'));
+                  

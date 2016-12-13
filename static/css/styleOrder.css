@@ -187,3 +187,55 @@ input[type=checkbox]:checked + label:before {
     border: 1px solid #ccc;
     padding: 1%;
 }
+#vueBlocks {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.vueCodShow {
+     width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 1%;
+    
+}
+.vueCodShow:nth-child(1) {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin-top: 3%;
+}
+.vueCodShow:nth-child(n+2) {
+    border-bottom:1px solid #ccc;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    border-top: none;
+}
+.vueMesg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+    height: auto;
+    margin-left: 2%;
+    font-size: 1rem;
+    
+}
+.vueMesg h2 ,.vueMesg p{
+    font-weight: bold;
+}
+.vueRightBlock {
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    height: auto;
+    margin-right: 5%;
+}
+.vueRightBlock p {
+    font-weight: bold;
+    padding-right: 9%;
+}
