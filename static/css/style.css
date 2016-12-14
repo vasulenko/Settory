@@ -70,9 +70,9 @@ html body {
     background-color: white;
     align-items: center;
 }
-.contentText p {
+/*.contentText p {
     text-align: center;
-}
+}*/
 .navbar {
     width: 100%;
     height: 10%;
@@ -135,6 +135,8 @@ html body {
 .button.is-primary.navButt,.headerContentBlock .button.is-large.is-primary {
     background-color: #1f9de0;
     margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .button.is-primary.navButt:hover , .button.is-large.is-primary:hover {
