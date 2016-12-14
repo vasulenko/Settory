@@ -15,6 +15,7 @@ var order1 = new orderCod(1,'blabla@mail.com','0935556644','ShitIt st',2,'20:16'
 var order2 = new orderCod(2,'albalb@mail.com','0932223311','ShitHi st',1,'20:15','2k14',[1,4],600,false);
 var order3 = new orderCod(3,'lablab@mail.com','0507778899','ShitHer st',3,'20:20','2k15',[1,3],700,true);
 var orderArr = [order1,order2,order3];
+//var orderArr = [];
 
 var FilterOrder = React.createClass({
       getInitialState: function(){
@@ -27,9 +28,24 @@ var FilterOrder = React.createClass({
     componentWillMount: function(){
     this.setState({items: this.state.defaultArr})
   },
-    defaultRull: function(){
-        this.setState({items: this.state.defaultArr});
-        
+   
+    ActiveFilter: function(){
+        var updatedList = this.state.defaultArr;
+        updatedList = updatedList.filter(function(item){
+            if(item.status == false) {
+                return item
+            }
+        })
+        this.setState({items: updatedList});
+    },
+    componentDidMount: function(){
+         var updatedList = this.state.defaultArr;
+        updatedList = updatedList.filter(function(item){
+            if(item.status == false) {
+                return item
+            }
+        })
+        this.setState({items: updatedList});
     },
     FilterList: function(){
         var updatedList = this.state.defaultArr;
@@ -41,11 +57,12 @@ var FilterOrder = React.createClass({
         this.setState({items: updatedList});
     },
     render: function(){
+        
         return (
             <div>
             <div className="navButton">
             <div className="firstButtonBlock">
-                <a className="button is-info" onClick={this.defaultRull}>Заплановані прибирання</a>
+                <a className="button is-info" onClick={this.ActiveFilter}>Заплановані прибирання</a>
                 <a className="button" onClick={this.FilterList}>Проведені прибирання</a>
             </div>
                 <a className="button is-success" href="order.html">Замовити прибирання</a>
@@ -91,8 +108,9 @@ var ShowOrder = React.createClass({
                 </tr> 
              )
          });
+       
         return (
-            
+          
             <table className="table is-narrow">
             <tbody>
             <tr>
@@ -110,6 +128,7 @@ var ShowOrder = React.createClass({
             </table>
             
         )
+              
     }
 });
 ReactDOM.render(<FilterOrder itemsIn={ orderArr } />, document.getElementById('ownerOrder'));
