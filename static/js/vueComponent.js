@@ -8,34 +8,6 @@ var Spromo = new PromoCod('2f@mail','2012-11-11','000665555');
 var Thpromo = new PromoCod('3f@mail','2012-12-12','000');
 var promoArr = [Fpromo,Spromo,Thpromo];
 
-/*
-var Moar = React.createClass({
-    render: function(){
-        let promoArrShow =  this.props.items.map(function(item){
-             return (
-                <div className="vueCodShow">
-                     <div className="vueMesg">
-                        <h2> {item.mail} </h2>
-                        <p> {item.phone} </p>
-                    </div>
-                    <div className="vueRightBlock"> 
-                        <p>Joined</p>
-                        <div className="vueMesg">
-                            <h2>{item.dTime}</h2>
-                            <a>Детальніше</a>
-                        </div>
-                     </div>
-                 </div>
-                 
-             )
-         });
-        return (
-            <div> { promoArrShow } </div>
-        )
-    }
-});
-*/
-
 var FilteredList = React.createClass({
   filterList: function(event){
     var updatedList = this.state.defaultArr;
