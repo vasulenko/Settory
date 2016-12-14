@@ -239,3 +239,17 @@ input[type=checkbox]:checked + label:before {
     font-weight: bold;
     padding-right: 9%;
 }
+#tableOfOrder {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.optionArr {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+#tableOfOrder .table td {
+    vertical-align: middle;
+}
