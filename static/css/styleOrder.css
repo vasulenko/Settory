@@ -133,8 +133,9 @@ input[type=checkbox]:checked + label:before {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-   
+   margin-bottom: 3%;
 }
+
 .wrapperPromoCreate h2 {
     font-size: 1.7rem;
     font-weight: bold;
@@ -156,7 +157,7 @@ input[type=checkbox]:checked + label:before {
     flex-flow: column nowrap;
     justify-content: space-between;
 }
-#search p  {
+#search p,.promoShowContent {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
@@ -170,11 +171,7 @@ input[type=checkbox]:checked + label:before {
     height: auto;
     margin-top: 2%;
 }
-#TableContent {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .promoCodShow:nth-child(1) {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -195,11 +192,7 @@ input[type=checkbox]:checked + label:before {
     border: 1px solid #ccc;
     padding: 1%;
 }
-#vueBlocks {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .vueCodShow {
      width: 100%;
     height: auto;
@@ -247,43 +240,39 @@ input[type=checkbox]:checked + label:before {
     font-weight: bold;
     padding-right: 9%;
 }
-#tableOfOrder {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .optionArr {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: space-around;
 }
-#tableOfOrder .table td {
+ .table td {
     vertical-align: middle;
 }
-#ownerOrder {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.navButton a {
-    font-size: 0.5rem;
-    height: auto;
-}
-#ownerOrder .navButton{
+
+
+ .navButton{
     margin-bottom: 4%;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
-#ownerOrder .navButton .firstButtonBlock{
+ .navButton .firstButtonBlock{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
 }
-#ownerOrder .navButton .firstButtonBlock .button.is-info {
+ .navButton .firstButtonBlock .button.is-info {
     margin-right: 2%;
+}
+
+.table.is-narrow,.filter-list {
+    margin-top: 3%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 @media screen and (max-width:800px){
     header .nav {
@@ -326,4 +315,8 @@ input[type=checkbox]:checked + label:before {
         width: auto;
         margin: 0;
     }
+    .navButton a {
+    font-size: 0.5rem;
+    height: auto;
+}
 }

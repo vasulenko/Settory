@@ -22,16 +22,16 @@
                 </a>
           </div>
           <div class="nav-right_custom">
-                <a class="nav-item" href="promo.html">
+                <a class="nav-item" id="promo">
                   Промо
                 </a>
-                <a class="nav-item" href="DBVue.html">
+                <a class="nav-item" id="user">
                   Користувачі
                 </a>
-                <a class="nav-item" href="timeOrder.html">
+                <a class="nav-item"id="order">
                   Замовлення
                 </a>
-                <a class="nav-item" href="ownerOrder.html">
+                <a class="nav-item" id="userOrder">
                   Ваші прибирання
                 </a>
                 <a class="nav-item" href="../index.html">
@@ -40,76 +40,14 @@
             </div>
         </nav>
     </header>
-    <div class="wrapperOrderBlock">
-       <form id="orderForm">
-        <div class="orderBlock">
-            
-                <label class="label">Адреса квартири</label>
-                    <p class="control">
-                      <input class="input" type="text" placeholder="вулиця Богдана Хмельницького 64,квартира13" required>
-                    </p>
-                    <label class="label">Кількість кімнат</label>
-                    <p class="control has-addons">
-                     <a class="button" id="minus">
-                        -
-                      </a>
-                      <input class="input is-expanded" type="" placeholder="" required maxlength="1" value="1" name="roomQuantity" min="1">
-                      <a class="button" id=plus>
-                        +
-                      </a>
-                    </p>
-                    <label class="label">На яку дату?</label>
-                    <p class="control">
-                      <input type="text" class="input" required  onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)">
-                    </p>
-                    <label class="label">На який час?</label>
-                    <p class="control">
-                      <input class="input forTime" type="text" required>
-                    </p>
-                    <label class="label">Додаткові опції</label>
-                    <p class="control">
-                      <label class="checkbox">
-                        <input type="checkbox">
-                        Миття вікон
-                      </label>
-                       <label class="checkbox">
-                        <input type="checkbox">
-                        Миття посуду
-                      </label>
-                      <label class="checkbox">
-                        <input type="checkbox">
-                        Чистка холодильники
-                      </label>
-                      <label class="checkbox">
-                        <input type="checkbox">
-                        Чистка духовки
-                      </label>
-                      <label class="checkbox">
-                        <input type="checkbox">
-                        Прасування
-                      </label>
-                      
-                    </p>
-           
-        </div>
-        <div class="orderBox" id="cost">
-            <h2>500 грн</h2>
-            <p>Ми зв'яжемось з вами за годину до прибирання :)</p>  
-            <p class="control">
-              <input class="input" type="text" placeholder="Промокод,якщо є">
-            </p>    
-        <input type="submit" class="button is-info" value="Забронювати">
-        
-        </div>
-         </form>
-    </div>
-      
-        
+    <div id="reactBox"></div>
     <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="https://unpkg.com/react@15/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/JSXTransformer.js"></script>       
     <script src="js/timepicker.min.js"></script>
-    <script src="js/script.js"></script>  
+    <script type="text/jsx" src="js/reactComponent.js"></script>
+    <script src="js/script.js"></script>
   
 </body>
 </html>
