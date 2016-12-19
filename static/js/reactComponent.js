@@ -287,6 +287,60 @@ var List = React.createClass({
     }
 });
 var OrderBox = React.createClass({
+    minus1: function(){  
+    $("input[name='roomQuantity']").val(function(index,newVal){
+        if(newVal-1 < 1) return 1
+        else return newVal - 1
+  
+            });
+        this.multiCheck()
+    },
+    plus1: function(){
+        $("input[name='roomQuantity']").val(function(index,newVal){
+            if(newVal >= 10) return 10
+            else return +newVal +1
+    });
+    this.multiCheck()
+    },
+    componentDidMount: function(){
+        this.multiCheck()
+    },
+    time : function(){
+        $('#forTime').timepicker({
+        'timeFormat': 'H:i',
+        'step': 30,
+        'forceRoundTime': true,
+        'show2400' : true,
+        'scrollDefault': 'now',
+        'minTime': '8:00',
+        'maxTime': '19:00'
+        });
+    },
+    data1 : function(){
+        
+    },
+    summa: function (){
+        var sum = 0;
+        if($('#1stOpt').prop("checked")) sum +=300
+        if($('#2stOpt').prop("checked")) sum +=100
+        if($('#3stOpt').prop("checked")) sum += 150
+        if($('#4stOpt').prop("checked")) sum += 150
+        if($('#5stOpt').prop("checked")) sum += 125
+        sum += $("input[name='roomQuantity']").val()*100 + 400
+         $('#summ').empty()
+        $('#summ').text(sum)
+    },
+    check: function(){
+         $("input[name='roomQuantity']").val(function(index,newVal){
+        if(newVal > 10) return 10
+        else if (newVal < 1) return 1
+        else return newVal
+            });
+    },
+    multiCheck: function(){
+      this.check()
+        this.summa()
+    },
     render: function(){
         return (
       <div className="wrapperOrderBlock">
@@ -298,48 +352,48 @@ var OrderBox = React.createClass({
             </p>
             <label className="label">Кількість кімнат</label>
             <p className="control has-addons">
-              <a className="button" id="minus">
+              <a className="button" id="minus" onClick={this.minus1}>
                 -
               </a>
-              <input className="input is-expanded" type placeholder required maxLength={1} defaultValue={1} name="roomQuantity" min={1} />
-              <a className="button" id="plus">
+              <input className="input is-expanded" type="text" required maxLength={2} defaultValue={1} name="roomQuantity" min={1} onChange={this.multiCheck}/>
+              <a className="button" id="plus" onClick={this.plus1}>
                 +
               </a>
             </p>
             <label className="label">На яку дату?</label>
             <p className="control">
-              <input type="text" className="input" required onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" />
+              <input type="text" className="input" id="datapicker" required onClick={this.data1} />
             </p>
             <label className="label">На який час?</label>
             <p className="control">
-              <input className="input forTime" type="text" required />
+              <input className="input" id="forTime" onClick={this.time} type="text" required />
             </p>
             <label className="label">Додаткові опції</label>
             <p className="control">
               <label className="checkbox">
-                <input type="checkbox" />
+                <input type="checkbox" id="1stOpt" onChange={this.summa}/>
                 Миття вікон
               </label>
               <label className="checkbox">
-                <input type="checkbox" />
+                <input type="checkbox" id="2stOpt" onChange={this.summa}/>
                 Миття посуду
               </label>
               <label className="checkbox">
-                <input type="checkbox" />
+                <input type="checkbox" id="3stOpt" onChange={this.summa}/>
                 Чистка холодильники
               </label>
               <label className="checkbox">
-                <input type="checkbox" />
+                <input type="checkbox" id="4stOpt" onChange={this.summa}/>
                 Чистка духовки
               </label>
               <label className="checkbox">
-                <input type="checkbox" />
+                <input type="checkbox" id="5stOpt" onChange={this.summa}/>
                 Прасування
               </label>
             </p>
           </div>
           <div className="orderBox" id="cost">
-            <h2>500 грн</h2>
+            <h2 id="summ"></h2>
             <p>Ми зв'яжемось з вами за годину до прибирання :)</p>  
             <p className="control">
               <input className="input" type="text" placeholder="Промокод,якщо є" />
