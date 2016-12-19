@@ -255,7 +255,10 @@ input[type=checkbox]:checked + label:before {
     vertical-align: middle;
 }
 
-
+.wrapperTable1 {
+    width: 98vw;
+    overflow-x: auto;
+}
  .navButton{
     margin-bottom: 4%;
     width: 90%;
@@ -284,10 +287,7 @@ input[type=checkbox]:checked + label:before {
     header .nav {
         width: 100%;
     }
-    .table.is-narrow {
-        overflow-x: auto;
-        min-height: 500px;
-    }
+    
      .nav-item, td {
         font-size: 0.8rem;
     }
@@ -305,7 +305,7 @@ input[type=checkbox]:checked + label:before {
         margin-right: auto;
     }
     .navText p {
-         font-size: 0.5rem;
+         font-size: 0.65rem;
     }
     .navText p strong {
         font-size: 0.7rem;
@@ -313,10 +313,10 @@ input[type=checkbox]:checked + label:before {
 }
 @media screen and (max-width:600px){
     .nav-item {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
     }
     td {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
     }
     #orderForm {
         flex-flow: column nowrap;
@@ -324,9 +324,20 @@ input[type=checkbox]:checked + label:before {
     .orderBlock,.orderBox {
         width: auto;
         margin: 0;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
     .navButton a {
     font-size: 0.5rem;
     height: auto;
 }
+    .navButton .firstButtonBlock {
+        flex-flow: column nowrap;
+    }
+    .navButton .firstButtonBlock a:nth-child(2) {
+        margin-top: 2%;
+    }
+    .navButton .firstButtonBlock .button.is-info {
+        margin: 0;
+    }
 }

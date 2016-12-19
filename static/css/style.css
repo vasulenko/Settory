@@ -553,7 +553,7 @@ html body .wrapperInfoBlock .box {
     margin-right: auto;
 }
 .wrapperSafetyBlock {
-    
+   padding: 1%;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;

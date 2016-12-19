@@ -199,7 +199,7 @@ var ShowOrder = React.createClass({
              )
          });
         return (
-            
+            <div className="wrapperTable1">
             <table className="table is-narrow">
             <tbody>
             <tr>
@@ -216,7 +216,7 @@ var ShowOrder = React.createClass({
              { list }
             </tbody>
             </table>
-            
+            </div>
         )
     }
 });
@@ -316,9 +316,7 @@ var OrderBox = React.createClass({
         'maxTime': '19:00'
         });
     },
-    data1 : function(){
-        
-    },
+    
     summa: function (){
         var sum = 0;
         if($('#1stOpt').prop("checked")) sum +=300
