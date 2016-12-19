@@ -1,4 +1,24 @@
-
+var Example = React.createClass({
+  displayName: 'Example',
+ 
+  getInitialState: function() {
+    return {
+      startDate: moment()
+    };
+  },
+ 
+  handleChange: function(date) {
+    this.setState({
+      startDate: date
+    });
+  },
+ 
+  render: function() {
+    return <DatePicker
+        selected={this.state.startDate}
+        onChange={this.handleChange} />;
+  }
+});
 $(document).ready(function(){
 ReactDOM.render(<OrderBox />, document.getElementById('reactBox'))
 console.log("111")         
