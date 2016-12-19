@@ -1,5 +1,5 @@
 {
-  "name": "Rozumnik",
+  "name": "Settory",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,5 +11,6 @@
     "moment": "^2.17.1",
     "path": "^0.12.7",
     "react-datepicker": "^0.39.0"
+    
   }
 }

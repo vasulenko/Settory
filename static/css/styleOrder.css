@@ -304,14 +304,15 @@ input[type=checkbox]:checked + label:before {
         margin-left: auto;
         margin-right: auto;
     }
+    
+}
+@media screen and (max-width:600px){
     .navText p {
          font-size: 0.65rem;
     }
     .navText p strong {
         font-size: 0.7rem;
     }
-}
-@media screen and (max-width:600px){
     .nav-item {
         font-size: 0.6rem;
     }

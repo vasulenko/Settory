@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 ReactDOM.render(<OrderBox />, document.getElementById('reactBox'))
 console.log("111")         
@@ -360,7 +361,7 @@ var OrderBox = React.createClass({
             </p>
             <label className="label">На яку дату?</label>
             <p className="control">
-              <input type="text" className="input" id="datapicker" required onClick={this.data1} />
+                <input type="text" className="input" id="datapicker" required onClick={this.data1} />
             </p>
             <label className="label">На який час?</label>
             <p className="control">
