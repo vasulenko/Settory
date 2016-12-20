@@ -336,8 +336,7 @@ var OrderBox = React.createClass({
         'minTime': '8:00',
         'maxTime': '19:00'
         });
-    },
-    
+    },   
     summa: function (){
         var sum = 0;
         if($('#1stOpt').prop("checked")) sum +=300

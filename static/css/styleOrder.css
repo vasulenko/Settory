@@ -31,9 +31,16 @@ body .ui-timepicker-wrapper {
     width: 40%;
 }
 .nav-right_custom {
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    align-items: center;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: auto;
     margin-left: auto;
@@ -57,10 +64,17 @@ table#fc {
     
 }
 #orderForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 .orderBlock {
     width: 60%;
@@ -95,18 +109,32 @@ input[type=checkbox]:checked + label:before {
     margin-top: 3%;
     width: 90%;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     margin-left: auto;
     margin-right: auto;
 }
 .navText {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-start;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     width: 100%;
 }
 .navText p strong {
@@ -122,10 +150,17 @@ input[type=checkbox]:checked + label:before {
 }
 .navButton {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-top: 2%;
     height: auto;
 }
@@ -134,9 +169,14 @@ input[type=checkbox]:checked + label:before {
     margin-left: auto;
     margin-right: auto;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
    margin-bottom: 3%;
 }
 
@@ -147,9 +187,14 @@ input[type=checkbox]:checked + label:before {
 #promoCreate {
      width: 100%;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 #promoCreate p input {
     width: 100%;
@@ -157,9 +202,14 @@ input[type=checkbox]:checked + label:before {
 #search {
      width: 100%;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 #search p,.promoShowContent {
     margin-left: auto;
@@ -189,10 +239,17 @@ input[type=checkbox]:checked + label:before {
 .promoCodShow {
     width: 100%;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     border: 1px solid #ccc;
     padding: 1%;
 }
@@ -200,10 +257,17 @@ input[type=checkbox]:checked + label:before {
 .vueCodShow {
      width: 100%;
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     border: 1px solid #ccc;
     padding: 1%;
     
@@ -220,10 +284,17 @@ input[type=checkbox]:checked + label:before {
     border-top: none;
 }
 .vueMesg {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-flow: column nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
     height: auto;
     margin-left: 2%;
     font-size: 1rem;
@@ -233,10 +304,17 @@ input[type=checkbox]:checked + label:before {
     font-weight: bold;
 }
 .vueRightBlock {
+     display: -webkit-box;
+     display: -ms-flexbox;
      display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
     height: auto;
     margin-right: 5%;
 }
@@ -246,10 +324,16 @@ input[type=checkbox]:checked + label:before {
 }
 
 .optionArr {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-around;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
 }
  .table td {
     vertical-align: middle;
@@ -266,13 +350,21 @@ input[type=checkbox]:checked + label:before {
     margin-right: auto;
 }
  .navButton .firstButtonBlock{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
  .navButton .firstButtonBlock .button.is-info {
-    margin-right: 2%;
+    margin-top: 2%;
+     margin-right: 50%;
 }
 .control .checkbox {
     margin-right: 2%;
@@ -298,7 +390,9 @@ input[type=checkbox]:checked + label:before {
         display: none;
     }
     .nav .nav-right {
-        justify-content: flex-start;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
     }
     .nav-right_custom {
         margin-left: auto;
@@ -320,7 +414,8 @@ input[type=checkbox]:checked + label:before {
         font-size: 0.7rem;
     }
     #orderForm {
-        flex-flow: column nowrap;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
     }
     .orderBlock,.orderBox {
         width: auto;
@@ -333,7 +428,8 @@ input[type=checkbox]:checked + label:before {
     height: auto;
 }
     .navButton .firstButtonBlock {
-        flex-flow: column nowrap;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
     }
     .navButton .firstButtonBlock a:nth-child(2) {
         margin-top: 2%;
