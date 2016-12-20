@@ -23,7 +23,7 @@ $(document).ready(function(){
 ReactDOM.render(<OrderBox />, document.getElementById('reactBox'))
 console.log("111")         
 })
-
+var i = 0;
 function PromoCod(cof,dTime,mesg) {
     this.cof = cof,
     this.dTime = dTime,
@@ -58,8 +58,14 @@ var order3 = new orderCod(3,'lablab@mail.com','0507778899','ShitHer st',3,'20:20
 
 var dataArr = [data1,data2,data3];
 var promoArr = [Fpromo,Spromo,Thpromo];
-var orderArr = [order1,order2,order3];
-
+var orderArr =[order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3];
+var spliceArr = [];
+var copyArr = orderArr.slice();
+do {
+    
+    spliceArr.push(copyArr.splice(0,20))
+}
+while(copyArr[0] !== undefined)
 var FilterOrder = React.createClass({
       getInitialState: function(){
       let defaultArr = this.props.itemsIn
@@ -79,7 +85,8 @@ var FilterOrder = React.createClass({
                 return item
             }
         })
-        this.setState({items: updatedList});
+       this.setState({items: updatedList});
+        
     },
     componentDidMount: function(){
          var updatedList = this.state.defaultArr;
@@ -89,6 +96,7 @@ var FilterOrder = React.createClass({
             }
         })
         this.setState({items: updatedList});
+        console.log(updatedList)
     },
     FilterList: function(){
         var updatedList = this.state.defaultArr;
@@ -98,9 +106,19 @@ var FilterOrder = React.createClass({
             }
         })
         this.setState({items: updatedList});
+        
+    },
+    multiArrCreate: function(){
+         var promiseArr = this.state.items.slice();
+        var multiArr = [];
+        do {
+           multiArr.push(promiseArr.splice(0,20))
+        }
+        while(promiseArr[0] !== undefined)
+            console.log(multiArr)
+            return multiArr
     },
     render: function(){
-        
         return (<div>
             <div className="wrapperNav">
         <div className="navText">
@@ -116,7 +134,7 @@ var FilterOrder = React.createClass({
             </div>
                 <a className="button is-success" href="order.html">Замовити прибирання</a>
         </div>
-        <ShowOrder itemsIn={this.state.items}/>
+                <ShowOrder itemsIn={this.multiArrCreate()}/>
                 </div>
                 </div>
             )
@@ -177,14 +195,47 @@ var ShowOrderWrap = React.createClass({
             Опрацювати кожне необхідно протягом 5 хвилин</p>
         </div>
       </div>
-            <ShowOrder itemsIn={ orderArr } />
+            <ShowOrder itemsIn={ spliceArr }  />
     </div>
         )
     }
 });
 var ShowOrder = React.createClass({
+     getInitialState: function(){
+      let defaultArr = this.props.itemsIn
+      console.log(defaultArr)
+     return {
+       defaultArr,
+       items: []
+     }
+     
+  },
+    componentWillMount: function(){
+    this.setState({items: this.state.defaultArr})
+  },
+     multiArrCreate: function(){
+         var promiseArr = this.state.defaultArr;
+        var multiArr = []
+        do {
+           multiArr.push(promiseArr.splice(0,20))
+        }
+        while(promiseArr[0] !== undefined)
+            console.log(multiArr)
+            this.setState({items: multiArr})
+    },
+    i: 0,
+    plus: function(){
+        if(i !== this.state.items.length && i < this.state.items.length-1) i += 1
+        console.log('plus,i ='+i)
+        pure()
+    },
+    minus: function(){
+        if(i !== 0 || i > 0) i -= 1 
+        console.log('minus,i ='+i)
+        pure()
+    },
     render: function(){
-        var list = this.props.itemsIn.map(function(item){
+        var list = this.state.items[i].map(function(item){
             var el = [];
             var statusChecked;
             var arr = item.option.map(function(items){
@@ -237,6 +288,11 @@ var ShowOrder = React.createClass({
              { list }
             </tbody>
             </table>
+            <nav className="pagination">
+          <a className="button" onClick={this.minus}>Previous</a>
+          <a className="button" onClick={this.plus}>Next page</a>
+          
+        </nav>
             </div>
         )
     }
@@ -387,7 +443,7 @@ var OrderBox = React.createClass({
               <input className="input" id="forTime" onClick={this.time} type="text" required />
             </p>
             <label className="label">Додаткові опції</label>
-            <p className="control">
+            <p className="control checkBoxBox">
               <label className="checkbox">
                 <input type="checkbox" id="1stOpt" onChange={this.summa}/>
                 Миття вікон
@@ -428,18 +484,32 @@ $('#reloadF').click(function(){
     ReactDOM.render(<OrderBox />,document.getElementById('reactBox'))
 });
 $('#order').click(function(){
-    $('reactBox').empty();
-   ReactDOM.render(<ShowOrderWrap />,document.getElementById('reactBox')) 
+    $('#reactBox').empty();
+     $('.nav-item').removeClass("is-active")
+    $('#order').addClass("is-active")
+   ReactDOM.render(<ShowOrderWrap  />,document.getElementById('reactBox')) 
 });
+var pure = function(){
+    $('#reactBox').empty();
+     $('.nav-item').removeClass("is-active")
+    $('#order').addClass("is-active")
+   ReactDOM.render(<ShowOrderWrap />, document.getElementById('reactBox'))
+};
 $('#promo').click(function(){
-     $('reactBox').empty();
+     $('#reactBox').empty();
+    $('.nav-item').removeClass("is-active")
+    $('#promo').addClass("is-active")
     ReactDOM.render(<ShowPromo items={ promoArr } />,document.getElementById('reactBox'))
 });
 $('#user').click(function(){
-    $('reactBox').empty();
+    $('#reactBox').empty();
+     $('.nav-item').removeClass("is-active")
+    $('#user').addClass("is-active")
    ReactDOM.render(<FilteredList itemsIn={ dataArr }/>,document.getElementById('reactBox')) 
 });
 $('#userOrder').click(function(){
-    $('reactBox').empty();
+    $('#reactBox').empty();
+     $('.nav-item').removeClass("is-active")
+    $('#userOrder').addClass("is-active")
    ReactDOM.render(<FilterOrder itemsIn={ orderArr } />,document.getElementById('reactBox'))
 });    

@@ -45,6 +45,12 @@ body .ui-timepicker-wrapper {
     width: auto;
     margin-left: auto;
 }
+.nav-item {
+    height: 100%;
+}
+.nav-item.is-active {
+     border-bottom: 2px solid black;
+}
 .nav-left .nav-item {
     font-size: 1.2rem;
 }
@@ -322,7 +328,19 @@ input[type=checkbox]:checked + label:before {
     font-weight: bold;
     padding-right: 9%;
 }
-
+.pagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+}
 .optionArr {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -345,7 +363,7 @@ input[type=checkbox]:checked + label:before {
 }
  .navButton{
     margin-bottom: 4%;
-    width: 90%;
+    width: 96%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -363,8 +381,7 @@ input[type=checkbox]:checked + label:before {
             align-items: center;
 }
  .navButton .firstButtonBlock .button.is-info {
-    margin-top: 2%;
-     margin-right: 50%;
+     margin-right: 4%;
 }
 .control .checkbox {
     margin-right: 2%;
@@ -404,6 +421,23 @@ input[type=checkbox]:checked + label:before {
     .navText p {
          font-size: 0.65rem;
     }
+    /*.navButton .firstButtonBlock .button.is-info {
+    margin-top: 2%;
+     margin-right: 50%;
+}*/
+   .control.checkBoxBox {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    }
     .navText p strong {
         font-size: 0.7rem;
     }
@@ -427,14 +461,17 @@ input[type=checkbox]:checked + label:before {
     font-size: 0.5rem;
     height: auto;
 }
-    .navButton .firstButtonBlock {
+    /*.navButton .firstButtonBlock {
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap;
-    }
-    .navButton .firstButtonBlock a:nth-child(2) {
+    }*/
+    /*.navButton .firstButtonBlock a:nth-child(2) {
         margin-top: 2%;
-    }
+    }*/
     .navButton .firstButtonBlock .button.is-info {
         margin: 0;
+    }
+    .navButton{
+    width: 100%;
     }
 }

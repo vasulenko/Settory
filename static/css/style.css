@@ -671,7 +671,7 @@ html body .wrapperInfoBlock .box {
     box-shadow: none;
     padding: 0;
     margin: 2%;
-    height: 30%;
+   /* height: 30%;*/
     background-color: #f4f4f5;
 }
 
@@ -904,9 +904,9 @@ html body .wrapperInfoBlock .box {
     display:none;
 }
 @media screen and (max-width: 1050px) {
-    .wrapperHeader {
+    /*.wrapperHeader {
         height: auto;
-    }
+    }*/
     .wrapperHeaderRightBlock {
         /*height: 80%;*/
         height: auto;
@@ -1086,5 +1086,8 @@ html body .wrapperInfoBlock .box {
     }
     .navbarDownButton {
         max-width: none;
+    }
+    .wrapperMainContent {
+        min-height: 120vh;
     }
 }
