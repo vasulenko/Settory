@@ -24,6 +24,7 @@ ReactDOM.render(<OrderBox />, document.getElementById('reactBox'))
 console.log("111")         
 })
 var i = 0;
+var j =0;
 function PromoCod(cof,dTime,mesg) {
     this.cof = cof,
     this.dTime = dTime,
@@ -55,7 +56,6 @@ var Thpromo = new PromoCod('30','2012-12-12','Blablabla3');
 var order1 = new orderCod(1,'blabla@mail.com','0935556644','ShitIt st',2,'20:16','2k16',[1,2],500,false);
 var order2 = new orderCod(2,'albalb@mail.com','0932223311','ShitHi st',1,'20:15','2k14',[1,4],600,false);
 var order3 = new orderCod(3,'lablab@mail.com','0507778899','ShitHer st',3,'20:20','2k15',[1,3],700,true);
-
 var dataArr = [data1,data2,data3];
 var promoArr = [Fpromo,Spromo,Thpromo];
 var orderArr =[order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3,order1,order2,order3];
@@ -66,6 +66,21 @@ do {
     spliceArr.push(copyArr.splice(0,20))
 }
 while(copyArr[0] !== undefined)
+var ShowOrderWrap = React.createClass({
+    render: function(){
+        return (
+        <div>
+            <div className="wrapperNav">
+        <div className="navText">
+          <p><strong>Замовлення</strong>
+            Опрацювати кожне необхідно протягом 5 хвилин</p>
+        </div>
+      </div>
+            <ShowOrder itemsIn={ spliceArr }  />
+    </div>
+        )
+    }
+});
 var FilterOrder = React.createClass({
       getInitialState: function(){
       let defaultArr = this.props.itemsIn
@@ -75,9 +90,11 @@ var FilterOrder = React.createClass({
      }
   },
     componentWillMount: function(){
-    this.setState({items: this.state.defaultArr})
-  },
+    this.setState({items: this.state.defaultArr}) 
    
+    if(this.props.check) this.FilterList()
+    else this.ActiveFilter()
+  },
     ActiveFilter: function(){
         var updatedList = this.state.defaultArr;
         updatedList = updatedList.filter(function(item){
@@ -86,17 +103,6 @@ var FilterOrder = React.createClass({
             }
         })
        this.setState({items: updatedList});
-        
-    },
-    componentDidMount: function(){
-         var updatedList = this.state.defaultArr;
-        updatedList = updatedList.filter(function(item){
-            if(item.status == false) {
-                return item
-            }
-        })
-        this.setState({items: updatedList});
-        console.log(updatedList)
     },
     FilterList: function(){
         var updatedList = this.state.defaultArr;
@@ -106,7 +112,6 @@ var FilterOrder = React.createClass({
             }
         })
         this.setState({items: updatedList});
-        
     },
     multiArrCreate: function(){
          var promiseArr = this.state.items.slice();
@@ -115,27 +120,99 @@ var FilterOrder = React.createClass({
            multiArr.push(promiseArr.splice(0,20))
         }
         while(promiseArr[0] !== undefined)
-            console.log(multiArr)
             return multiArr
     },
+    i: 0,
+    plus: function(){
+        var miss = this.multiArrCreate()
+        var check = miss[0][0].status
+        if(j !== miss.length && j < miss.length-1) j += 1
+        pureFilter(check = miss[0][0].status)
+    },
+    minus: function(){
+        var miss = this.multiArrCreate()
+        var check = miss[0][0].status
+        if(j !== 0 && j > 0) j -= 1 
+        pureFilter(check = miss[0][0].status)
+    },
     render: function(){
+        var miss = this.multiArrCreate()
+        var check = miss[0][0].status
+        
+         var list = miss[j].map(function(item){
+            var el = [];
+            var statusChecked;
+            var arr = item.option.map(function(items){
+                if(items == 1) el.push('Миття вікон')
+                if(items == 2) el.push('Миття посуду')
+                if(items ==3) el.push('Чистка холодильника')
+                if(items == 4) el.push('Чистка духовки')
+                if(items == 5) el.push('Прасування')
+            })
+            if(item.status == false) {
+                statusChecked = 'Активно'
+            }
+            else {statusChecked = 'Завершено'
+                 }
+            var length = el.map(function(option){
+                return (
+                    <li>{ option }</li>
+                 )
+            });
+             return (
+                <tr>
+                    <td>{item.numberValue}</td>
+                    <td>{item.mail}</td>
+                    <td>{item.phone}</td>
+                    <td>{item.adress}</td>
+                    <td>{item.room}</td>
+                    <td>{item.dTimeH} {item.dTimeD}</td>
+                    <td><ul>{length}</ul>
+                    </td>
+                    <td>{item.pay}</td>
+                    <td>{statusChecked}</td>
+                </tr> 
+             )
+         });
         return (<div>
-            <div className="wrapperNav">
-        <div className="navText">
-          <p><strong>Ваші прибирання</strong>
-            Заплануйте нові прибирання та контролюйте вже заплановані</p>
-        </div> 
-      </div>
-            <div>
-            <div className="navButton">
-            <div className="firstButtonBlock">
-                <a className="button is-info" onClick={this.ActiveFilter}>Заплановані прибирання</a>
-                <a className="button" onClick={this.FilterList}>Проведені прибирання</a>
-            </div>
-                <a className="button is-success" href="order.html">Замовити прибирання</a>
-        </div>
-                <ShowOrder itemsIn={this.multiArrCreate()}/>
+                <div className="wrapperNav">
+                <div className="navText">
+                  <p><strong>Ваші прибирання</strong>
+                    Заплануйте нові прибирання та контролюйте вже заплановані</p>
+                </div> 
+              </div>
+                <div>
+                <div className="navButton">
+                <div className="firstButtonBlock">
+                    <a className="button is-info" onClick={this.ActiveFilter}>Заплановані прибирання</a>
+                    <a className="button" onClick={this.FilterList}>Проведені прибирання</a>
                 </div>
+                    <a className="button is-success" href="order.html">Замовити прибирання</a>
+            </div>
+                </div>
+    <div className="wrapperTable1">
+            <table className="table is-narrow">
+            <tbody>
+            <tr>
+                <td><strong>#</strong></td>
+                <td><strong>Пошта</strong></td>
+                <td><strong>Номер телефону</strong></td>
+                <td><strong>Адреса</strong></td>
+                <td><strong>К</strong></td>
+                <td><strong>Час  і  дата</strong></td>
+                <td><strong>Опції</strong></td>
+                <td><strong>Сплачено</strong></td>
+                <td><strong>Статус</strong></td>
+            </tr>
+             { list }
+            </tbody>
+            </table>
+            <nav className="pagination">
+          <a className="button" onClick={this.minus}>Previous</a>
+          <a className="button" onClick={this.plus}>Next page</a>
+          
+        </nav>
+            </div>
                 </div>
             )
     }
@@ -185,25 +262,9 @@ var ShowPromo = React.createClass({
         )
     },
 });
-var ShowOrderWrap = React.createClass({
-    render: function(){
-        return (
-        <div>
-            <div className="wrapperNav">
-        <div className="navText">
-          <p><strong>Замовлення</strong>
-            Опрацювати кожне необхідно протягом 5 хвилин</p>
-        </div>
-      </div>
-            <ShowOrder itemsIn={ spliceArr }  />
-    </div>
-        )
-    }
-});
 var ShowOrder = React.createClass({
      getInitialState: function(){
       let defaultArr = this.props.itemsIn
-      console.log(defaultArr)
      return {
        defaultArr,
        items: []
@@ -213,25 +274,14 @@ var ShowOrder = React.createClass({
     componentWillMount: function(){
     this.setState({items: this.state.defaultArr})
   },
-     multiArrCreate: function(){
-         var promiseArr = this.state.defaultArr;
-        var multiArr = []
-        do {
-           multiArr.push(promiseArr.splice(0,20))
-        }
-        while(promiseArr[0] !== undefined)
-            console.log(multiArr)
-            this.setState({items: multiArr})
-    },
+    
     i: 0,
     plus: function(){
         if(i !== this.state.items.length && i < this.state.items.length-1) i += 1
-        console.log('plus,i ='+i)
         pure()
     },
     minus: function(){
         if(i !== 0 || i > 0) i -= 1 
-        console.log('minus,i ='+i)
         pure()
     },
     render: function(){
@@ -495,6 +545,12 @@ var pure = function(){
     $('#order').addClass("is-active")
    ReactDOM.render(<ShowOrderWrap />, document.getElementById('reactBox'))
 };
+var pureFilter = function(bool1){
+    $('#reactBox').empty();
+     $('.nav-item').removeClass("is-active")
+    $('#userOrder').addClass("is-active")
+   ReactDOM.render(<FilterOrder itemsIn={ orderArr } check={ bool1}/>, document.getElementById('reactBox'))
+};
 $('#promo').click(function(){
      $('#reactBox').empty();
     $('.nav-item').removeClass("is-active")
@@ -508,8 +564,9 @@ $('#user').click(function(){
    ReactDOM.render(<FilteredList itemsIn={ dataArr }/>,document.getElementById('reactBox')) 
 });
 $('#userOrder').click(function(){
+    var bool1 = false
     $('#reactBox').empty();
      $('.nav-item').removeClass("is-active")
     $('#userOrder').addClass("is-active")
-   ReactDOM.render(<FilterOrder itemsIn={ orderArr } />,document.getElementById('reactBox'))
-});    
+   ReactDOM.render(<FilterOrder itemsIn={ orderArr } check={ bool1 } />,document.getElementById('reactBox'))
+});
