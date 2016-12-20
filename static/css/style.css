@@ -1090,4 +1090,11 @@ html body .wrapperInfoBlock .box {
     .wrapperMainContent {
         min-height: 120vh;
     }
+    .mainContentParrent {
+        height: 100vh;
+        margin-bottom: auto;
+    }
+    .mainContentChild {
+        margin-top: 0;
+    }
 }
