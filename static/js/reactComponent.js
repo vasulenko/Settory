@@ -82,7 +82,7 @@ var ShowOrderWrap = React.createClass({
     }
 });
 var FilterOrder = React.createClass({
-      getInitialState: function(){
+    getInitialState: function(){
       let defaultArr = this.props.itemsIn
      return {
        defaultArr,
@@ -90,10 +90,13 @@ var FilterOrder = React.createClass({
      }
   },
     componentWillMount: function(){
-    this.setState({items: this.state.defaultArr}) 
-   
-    if(this.props.check) this.FilterList()
-    else this.ActiveFilter()
+    this.setState({items: this.state.defaultArr})
+    if(this.props.check) {  
+        this.FilterList()
+    }
+    else {
+        this.ActiveFilter()
+    }
   },
     ActiveFilter: function(){
         var updatedList = this.state.defaultArr;
@@ -112,6 +115,10 @@ var FilterOrder = React.createClass({
             }
         })
         this.setState({items: updatedList});
+    },
+    test: function(){
+        if($('#toggle').prop("checked")) this.FilterList()
+        else this.ActiveFilter()
     },
     multiArrCreate: function(){
          var promiseArr = this.state.items.slice();
@@ -184,8 +191,12 @@ var FilterOrder = React.createClass({
                 <div>
                 <div className="navButton">
                 <div className="firstButtonBlock">
-                    <a className="button is-info" onClick={this.ActiveFilter}>Заплановані прибирання</a>
-                    <a className="button" onClick={this.FilterList}>Проведені прибирання</a>
+                    <a className="button is-info" >Заплановані прибирання</a>
+                    <div className="toggleBox">
+                    <input type="checkbox" name="toggle" id="toggle" onChange={this.test}/>
+                    <label htmlFor="toggle" />
+                  </div>
+                    <a className="button" >Проведені прибирання</a>
                 </div>
                     <a className="button is-success" href="order.html">Замовити прибирання</a>
             </div>
@@ -546,10 +557,15 @@ var pure = function(){
    ReactDOM.render(<ShowOrderWrap />, document.getElementById('reactBox'))
 };
 var pureFilter = function(bool1){
+    if(bool1) {
+    setTimeout(function(){
+        $('#toggle').prop('checked',true)
+    }),10
+    }
     $('#reactBox').empty();
      $('.nav-item').removeClass("is-active")
     $('#userOrder').addClass("is-active")
-   ReactDOM.render(<FilterOrder itemsIn={ orderArr } check={ bool1}/>, document.getElementById('reactBox'))
+   ReactDOM.render(<FilterOrder itemsIn={ orderArr } check={ bool1 }/>, document.getElementById('reactBox'))
 };
 $('#promo').click(function(){
      $('#reactBox').empty();
