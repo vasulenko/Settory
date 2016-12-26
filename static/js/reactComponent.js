@@ -1,3 +1,4 @@
+
 var Example = React.createClass({
   displayName: 'Example',
  
@@ -62,10 +63,12 @@ var orderArr =[order1,order2,order3,order1,order2,order3,order1,order2,order3,or
 var spliceArr = [];
 var copyArr = orderArr.slice();
 do {
-    
     spliceArr.push(copyArr.splice(0,20))
 }
 while(copyArr[0] !== undefined)
+    
+    
+  
 var ShowOrderWrap = React.createClass({
     render: function(){
         return (
@@ -229,6 +232,12 @@ var FilterOrder = React.createClass({
     }
 });
 var ShowPromo = React.createClass({
+    dataPic: function(){
+        console.log('adsa')
+        $("#datapicker2").datepicker({
+            dateFormat: 'dd MM yy'
+        })
+    },
     render: function(){
          var promoArrShow =  this.props.items.map(function(item){
              return (
@@ -250,7 +259,7 @@ var ShowPromo = React.createClass({
             </a>
           </p>
           <p className="control has-addons">
-            <input type="text" className="input" required onfocus="this.select();lcs(this)" onclick="event.cancelBubble=true;this.select();lcs(this)" placeholder="dd/mm/yyyy" />
+            <input type="text" className="input" required id="datapicker2" onClick={this.dataPic} placeholder="dd/mm/yyyy" />
             <a className="button">
               DATE
             </a>
@@ -454,6 +463,13 @@ var OrderBox = React.createClass({
         'maxTime': '19:00'
         });
     },   
+    dataPic: function(){
+        $("#datapicker1").datepicker({
+            dateFormat: 'dd MM yy'
+
+})
+        
+    },
     summa: function (){
         var sum = 0;
         if($('#1stOpt').prop("checked")) sum +=300
@@ -497,7 +513,7 @@ var OrderBox = React.createClass({
             </p>
             <label className="label">На яку дату?</label>
             <p className="control">
-                <input type="text" className="input" id="datapicker" required onClick={this.data1} />
+             <input type="text" className="input" id="datapicker1" required onClick={this.dataPic} />
             </p>
             <label className="label">На який час?</label>
             <p className="control">
