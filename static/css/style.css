@@ -63,42 +63,21 @@ html body {
     margin-right: auto;
 }
 .wrapperHeader {
-    width: 100%;
-    height: 100vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
     background-color: white;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    height: 100vh;
 }
 /*.contentText p {
     text-align: center;
 }*/
+header {
+    position: relative;
+}
 .navbar {
     width: 100%;
     height: 10%;
-
-    display: -webkit-box;
-
-    display: -ms-flexbox;
-
-    display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     /*background-color: #eae9e9;*/
     background-color: #f4f4f5;
      /*transition: top 0.3s ease-in-out;*/
-    position: fixed;
     top: 0;
     z-index: 10;
     min-height:40px;
@@ -119,10 +98,6 @@ html body {
     height: 100%;
 }
 
-.header--hidden
-{
-
-}
 
 .nav-up {
     top: -10%;
@@ -133,30 +108,30 @@ html body {
     width: auto;
     margin-left: 15%;
     height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     max-width: 25%;
 }
-.navbarLogo img {
-    height: 100%;
-}
-.navbarDownButton {
-    width: auto;
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-right: 1%;
-    max-width: 25%;
+.navbarLogo pre {
+  line-height: 1.1;
+  margin-top: 7px;
+  font-weight: 900;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
 }
 
+.navbarDownButton {
+    width: auto;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    max-width: 25%;
+}
+@media screen and (max-width: 768px){
+  .navbarLogo pre {
+    margin-top: 0;
+    font-size: 15px;
+  }
+}
 .navbarLogo.column.is-2.is-pulled-left {
     padding: 0;
 }
@@ -172,63 +147,49 @@ html body {
 .button.is-primary.navButt:hover , .button.is-large.is-primary:hover {
     background-color: #006bbd;
 }
-.header {
-    width: 100%;
-    height: 90%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    background-color: white;
-    margin-top: 7%;
+
+
+.first-screen {
+  padding-top: 80px;
 }
 
-.wrapperHeaderLeftBlock {
-    width: 55%;
-    /*height: 50%;*/
+.headerContentBlock button {
+  margin-top: 20px !important;
+}
+.headerContentBlock p {
+    margin-top: 5%;
+    font-size: 1.2rem;
+}
+
+.headerContentBlock h1 {
     margin: 0;
-
-
+    font-size: 2.5rem;
+    color: #363636;
+    font-weight: 300;
+    line-height: 1.125;
+}
+@media screen and (max-width: 768px) {
+  .headerContentBlock {
+    text-align: center;
+  }
+  .headerContentBlock h1 {
+    font-size: 2rem;
+  }
+  .headerContentBlock p {
+     font-size: 1.2rem;
+  }
+}
+.container {
+  padding: 3rem 1.5rem;
 }
 
-.headerLeftBlock {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -ms-flex-flow: column nowrap;
-        flex-flow: column nowrap;
-}
 
-.headerContentBlock {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0;
-    font-size: 20px;
-    line-height: 32px;
-}
-
-.headerLeftBlock .headerContentBlock h1 {
-    margin: 0;
-}
 
 .headerLeftBlock .headerContentBlock h6 {
     margin: 0;
     margin-bottom: 1%;
 }
 
-.headerLeftBlock .headerContentBlock p {
-    margin-top: 5%;
-}
 
 #sliderTitle {
     margin-top: 0;
@@ -236,11 +197,6 @@ html body {
 }
 
 .inputHeader {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: row nowrap;
-        flex-flow: row nowrap;
     width: 80%;
 }
 
@@ -253,9 +209,7 @@ html body {
 }
 
 .wrapperHeaderRightBlock {
-    width: 45%;
-    height: 100%;
- /  background-color: #c4d3da;
+    background-color: #c4d3da;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
@@ -928,7 +882,6 @@ html body .wrapperInfoBlock .box {
         height: auto;
     }
     .header {
-        margin-top: 10%;
     }
 
 }

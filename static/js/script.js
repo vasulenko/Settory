@@ -6,9 +6,7 @@
 
 $(window).scroll(function() {
     if ($(window).scrollTop() >= 15){
-        $('header').addClass('header--hidden');
     } else {
-        $('header').removeClass('header--hidden');
     }
 })
    $(document).ready(function(){
