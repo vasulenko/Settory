@@ -163,7 +163,7 @@ header {
 
 .headerContentBlock h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 35px;
     color: #363636;
     font-weight: 300;
     line-height: 1.125;
@@ -173,7 +173,7 @@ header {
     text-align: center;
   }
   .headerContentBlock h1 {
-    font-size: 2rem;
+    font-size: 25px;
   }
   .headerContentBlock p {
      font-size: 1.2rem;
@@ -185,6 +185,18 @@ header {
 
 .first-screen {
    padding: 10em 0;
+}
+@media screen and (max-width: 768px) {
+  .first-screen .columns {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+  .first-screen .columns .column:nth-child(1) {
+        -webkit-box-ordinal-group: 2;
+    }
+  .first-screen .columns .column:nth-child(2) {
+        -webkit-box-ordinal-group: 1;
+    }
 }
 
 .headerLeftBlock .headerContentBlock h6 {
@@ -338,7 +350,7 @@ em {
 #safety .column img{
     position: relative;
     left: 50%;
-    transform: translateX(-50%);       
+    transform: translateX(-50%);
 }
 
 
@@ -409,7 +421,7 @@ em {
             align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between;
+            justify-content: space-around !important;
     margin-top: 2%;
 }
 .wrapperFooter .footerBlock .iconBlock {
@@ -518,7 +530,7 @@ em {
     margin: 0;
     margin-left: auto;
     margin-right: auto;
-
+    line-height: 1.6;
     color: white;
 }
 .footerContentBox a {
@@ -750,7 +762,17 @@ html body .wrapperInfoBlock .box {
 #why-we, #safety, #what-we-do{
     padding-top: 50px;
 }
-
+@media screen and (max-width: 768px) {
+  .card {
+    margin-bottom: 25px !important;
+  }
+  #why-we .column {
+    margin-bottom: 25px !important;
+  }
+  #why-we .column:nth-child(3) {
+    margin-bottom: 0 !important;
+  }
+}
 @media screen and (max-width: 1050px) {
     /*.wrapperHeader {
         height: auto;
@@ -915,7 +937,7 @@ html body .wrapperInfoBlock .box {
     .first-screen {
        padding: 4em 0;
     }
-    
+
     .wrapperHeader {
         background-color: white;
         height: auto;
