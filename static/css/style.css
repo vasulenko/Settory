@@ -180,11 +180,11 @@ header {
   }
 }
 .container {
-  padding: 3rem 1.5rem;
+  padding: 3rem 1.5rem !important;
 }
 
 .first-screen {
-   padding: 10em 0;
+   padding: 8em 0 !important;
 }
 @media screen and (max-width: 768px) {
   .first-screen .columns {
