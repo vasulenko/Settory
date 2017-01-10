@@ -184,7 +184,6 @@ header {
 }
 
 .first-screen {
-   padding: 8em 0 !important;
 }
 @media screen and (max-width: 768px) {
   .first-screen .columns {
