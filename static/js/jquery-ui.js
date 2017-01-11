@@ -127,23 +127,23 @@ function Datepicker() {
 	this._dayOverClass = "ui-datepicker-days-cell-over"; // The name of the day hover marker class
 	this.regional = []; // Available regional settings, indexed by language code
 	this.regional[ "" ] = { // Default regional settings
-		closeText: "Done", // Display text for close link
-		prevText: "Prev", // Display text for previous month link
-		nextText: "Next", // Display text for next month link
-		currentText: "Today", // Display text for current month link
-		monthNames: [ "January","February","March","April","May","June",
-			"July","August","September","October","November","December" ], // Names of months for drop-down and formatting
-		monthNamesShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ], // For formatting
-		dayNames: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ], // For formatting
-		dayNamesShort: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ], // For formatting
-		dayNamesMin: [ "Su","Mo","Tu","We","Th","Fr","Sa" ], // Column headings for days starting at Sunday
-		weekHeader: "Wk", // Column header for week of the year
-		dateFormat: "mm/dd/yy", // See format options on parseDate
-		firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
-		isRTL: false, // True if right-to-left language, false if left-to-right
-		showMonthAfterYear: false, // True if the year select precedes month, false for month then year
-		yearSuffix: "" // Additional text to append to the year in the month headers
-	};
+		closeText: "Закрити",
+	prevText: "&#x3C;",
+	nextText: "&#x3E;",
+	currentText: "Сьогодні",
+	monthNames: [ "Січень","Лютий","Березень","Квітень","Травень","Червень",
+	"Липень","Серпень","Вересень","Жовтень","Листопад","Грудень" ],
+	monthNamesShort: [ "Січ","Лют","Бер","Кві","Тра","Чер",
+	"Лип","Сер","Вер","Жов","Лис","Гру" ],
+	dayNames: [ "неділя","понеділок","вівторок","середа","четвер","п’ятниця","субота" ],
+	dayNamesShort: [ "нед","пнд","вів","срд","чтв","птн","сбт" ],
+	dayNamesMin: [ "Нд","Пн","Вт","Ср","Чт","Пт","Сб" ],
+	weekHeader: "Тиж",
+	dateFormat: "dd.mm.yy",
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: "" };
 	this._defaults = { // Global defaults for all the date picker instances
 		showOn: "focus", // "focus" for popup on focus,
 			// "button" for trigger button, or "both" for either

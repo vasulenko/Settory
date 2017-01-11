@@ -1,19 +1,19 @@
 
 var Example = React.createClass({
   displayName: 'Example',
- 
+
   getInitialState: function() {
     return {
       startDate: moment()
     };
   },
- 
+
   handleChange: function(date) {
     this.setState({
       startDate: date
     });
   },
- 
+
   render: function() {
     return <DatePicker
         selected={this.state.startDate}
@@ -22,19 +22,19 @@ var Example = React.createClass({
 });
 $(document).ready(function(){
 ReactDOM.render(<OrderBox />, document.getElementById('reactBox'))
-console.log("111")         
+console.log("111")
 })
 var i = 0;
 var j =0;
 function PromoCod(cof,dTime,mesg) {
     this.cof = cof,
     this.dTime = dTime,
-    this.mesg = mesg    
+    this.mesg = mesg
 }
 function dataCod(mail,dTime,phone) {
     this.mail = mail,
     this.dTime = dTime,
-    this.phone = phone    
+    this.phone = phone
 }
 function orderCod(numberValue,mail,phone,adress,room,dTimeH,dTimeD,option,pay,status) {
     this.numberValue = numberValue,
@@ -66,9 +66,9 @@ do {
     spliceArr.push(copyArr.splice(0,20))
 }
 while(copyArr[0] !== undefined)
-    
-    
-  
+
+
+
 var ShowOrderWrap = React.createClass({
     render: function(){
         return (
@@ -94,7 +94,7 @@ var FilterOrder = React.createClass({
   },
     componentWillMount: function(){
     this.setState({items: this.state.defaultArr})
-    if(this.props.check) {  
+    if(this.props.check) {
         this.FilterList()
     }
     else {
@@ -142,13 +142,13 @@ var FilterOrder = React.createClass({
     minus: function(){
         var miss = this.multiArrCreate()
         var check = miss[0][0].status
-        if(j !== 0 && j > 0) j -= 1 
+        if(j !== 0 && j > 0) j -= 1
         pureFilter(check = miss[0][0].status)
     },
     render: function(){
         var miss = this.multiArrCreate()
         var check = miss[0][0].status
-        
+
          var list = miss[j].map(function(item){
             var el = [];
             var statusChecked;
@@ -181,7 +181,7 @@ var FilterOrder = React.createClass({
                     </td>
                     <td>{item.pay}</td>
                     <td>{statusChecked}</td>
-                </tr> 
+                </tr>
              )
          });
         return (<div>
@@ -189,7 +189,7 @@ var FilterOrder = React.createClass({
                 <div className="navText">
                   <p><strong>Ваші прибирання</strong>
                     Заплануйте нові прибирання та контролюйте вже заплановані</p>
-                </div> 
+                </div>
               </div>
                 <div>
                 <div className="navButton">
@@ -222,9 +222,9 @@ var FilterOrder = React.createClass({
             </tbody>
             </table>
             <nav className="pagination">
-          <a className="button" onClick={this.minus}>Previous</a>
-          <a className="button" onClick={this.plus}>Next page</a>
-          
+          <a className="button" onClick={this.minus}>Попередня</a>
+          <a className="button" onClick={this.plus}>Наступна</a>
+
         </nav>
             </div>
                 </div>
@@ -233,9 +233,9 @@ var FilterOrder = React.createClass({
 });
 var ShowPromo = React.createClass({
     dataPic: function(){
-        console.log('adsa')
+
         $("#datapicker2").datepicker({
-            dateFormat: 'dd MM yy'
+            dateFormat: 'dd.mm.yy'
         })
     },
     render: function(){
@@ -244,7 +244,7 @@ var ShowPromo = React.createClass({
                 <div className="promoCodShow">
                 <p>Промо на {item.cof}% дійсне до {item.dTime} код:{item.mesg}</p>
                 <a className="deletepromo">Видалити</a>
-                </div> 
+                </div>
              )
          });
         return (
@@ -259,15 +259,15 @@ var ShowPromo = React.createClass({
             </a>
           </p>
           <p className="control has-addons">
-            <input type="text" className="input" required id="datapicker2" onClick={this.dataPic} placeholder="dd/mm/yyyy" />
+            <input type="text" className="input" required id="datapicker2" onClick={this.dataPic} placeholder="день/місяць/рік" />
             <a className="button">
-              DATE
+              ДАТА
             </a>
           </p>
           <p className="control has-addons">
             <input className="input" type="text" placeholder="код" />
             <a className="button">
-              CODE
+              КОД
             </a>
           </p>
           <p className="control">
@@ -289,19 +289,19 @@ var ShowOrder = React.createClass({
        defaultArr,
        items: []
      }
-     
+
   },
     componentWillMount: function(){
     this.setState({items: this.state.defaultArr})
   },
-    
+
     i: 0,
     plus: function(){
         if(i !== this.state.items.length && i < this.state.items.length-1) i += 1
         pure()
     },
     minus: function(){
-        if(i !== 0 || i > 0) i -= 1 
+        if(i !== 0 || i > 0) i -= 1
         pure()
     },
     render: function(){
@@ -337,7 +337,7 @@ var ShowOrder = React.createClass({
                     </td>
                     <td>{item.pay}</td>
                     <td>{statusChecked}</td>
-                </tr> 
+                </tr>
              )
          });
         return (
@@ -359,9 +359,9 @@ var ShowOrder = React.createClass({
             </tbody>
             </table>
             <nav className="pagination">
-          <a className="button" onClick={this.minus}>Previous</a>
-          <a className="button" onClick={this.plus}>Next page</a>
-          
+          <a className="button" onClick={this.minus}>Попередня</a>
+          <a className="button" onClick={this.plus}>Наступна</a>
+
         </nav>
             </div>
         )
@@ -375,7 +375,7 @@ var FilteredList = React.createClass({
         event.target.value.toLowerCase()) !== -1)
       return item.mail.toLowerCase().search(
         event.target.value.toLowerCase()) !== -1;
-        else 
+        else
             return item.phone.toLowerCase().search(
         event.target.value.toLowerCase()) !== -1;
     });
@@ -401,7 +401,7 @@ var FilteredList = React.createClass({
         </div>
       </div>
       <div className="filter-list">
-        <input className="input" type="text" placeholder="Phone number or Email adress" onChange={this.filterList}/>
+        <input className="input" type="text" placeholder="Телефон або електронна пошта" onChange={this.filterList}/>
       <List items={this.state.items}/>
       </div>
         </div>
@@ -417,15 +417,15 @@ var List = React.createClass({
                         <h2> {item.mail} </h2>
                         <p> {item.phone} </p>
                     </div>
-                    <div className="vueRightBlock"> 
-                        <p>Joined</p>
+                    <div className="vueRightBlock">
+                        <p>Приєднався</p>
                         <div className="vueMesg">
                             <h2>{item.dTime}</h2>
                             <a>Детальніше</a>
                         </div>
                      </div>
                  </div>
-                 
+
              )
          });
         return (
@@ -434,11 +434,11 @@ var List = React.createClass({
     }
 });
 var OrderBox = React.createClass({
-    minus1: function(){  
+    minus1: function(){
     $("input[name='roomQuantity']").val(function(index,newVal){
         if(newVal-1 < 1) return 1
         else return newVal - 1
-  
+
             });
         this.multiCheck()
     },
@@ -462,13 +462,13 @@ var OrderBox = React.createClass({
         'minTime': '8:00',
         'maxTime': '19:00'
         });
-    },   
+    },
     dataPic: function(){
         $("#datapicker1").datepicker({
             dateFormat: 'dd MM yy'
 
 })
-        
+
     },
     summa: function (){
         var sum = 0;
@@ -544,11 +544,12 @@ var OrderBox = React.createClass({
             </p>
           </div>
           <div className="orderBox" id="cost">
-            <h2 id="summ"></h2>
-            <p>Ми зв'яжемось з вами за годину до прибирання :)</p>  
+            <span>Сума мін. замовлення: &nbsp;&nbsp;</span>
+            <span id="summ"></span>
+            <p>Ми зв'яжемось з вами за годину до прибирання :)</p>
             <p className="control">
               <input className="input" type="text" placeholder="Промокод,якщо є" />
-            </p>    
+            </p>
             <input type="submit" className="button is-info" defaultValue="Забронювати" />
           </div>
         </form>
@@ -564,7 +565,7 @@ $('#order').click(function(){
     $('#reactBox').empty();
      $('.nav-item').removeClass("is-active")
     $('#order').addClass("is-active")
-   ReactDOM.render(<ShowOrderWrap  />,document.getElementById('reactBox')) 
+   ReactDOM.render(<ShowOrderWrap  />,document.getElementById('reactBox'))
 });
 var pure = function(){
     $('#reactBox').empty();
@@ -593,7 +594,7 @@ $('#user').click(function(){
     $('#reactBox').empty();
      $('.nav-item').removeClass("is-active")
     $('#user').addClass("is-active")
-   ReactDOM.render(<FilteredList itemsIn={ dataArr }/>,document.getElementById('reactBox')) 
+   ReactDOM.render(<FilteredList itemsIn={ dataArr }/>,document.getElementById('reactBox'))
 });
 $('#userOrder').click(function(){
     var bool1 = false
