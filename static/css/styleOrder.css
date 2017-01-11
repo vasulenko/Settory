@@ -559,3 +559,9 @@ input[type=checkbox]:checked + label:before {
   font-size: 1.1rem;
   color: #00498E;
 }
+
+@media screen and (max-width: 1078px){
+  .slogan {
+    display: none;
+  }
+}
