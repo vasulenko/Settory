@@ -22,7 +22,6 @@ var Example = React.createClass({
 });
 $(document).ready(function(){
 ReactDOM.render(<OrderBox />, document.getElementById('reactBox'))
-console.log("111")
 })
 var i = 0;
 var j =0;
@@ -239,9 +238,9 @@ var ShowPromo = React.createClass({
         })
     },
     render: function(){
-         var promoArrShow =  this.props.items.map(function(item){
+         var promoArrShow =  this.props.items.map(function(item, i){
              return (
-                <div className="promoCodShow">
+                <div className="promoCodShow" key={i}>
                 <p>Промо на {item.cof}% дійсне до {item.dTime} код:{item.mesg}</p>
                 <a className="deletepromo">Видалити</a>
                 </div>
@@ -410,9 +409,9 @@ var FilteredList = React.createClass({
 });
 var List = React.createClass({
     render: function(){
-    let promoArrShow =  this.props.items.map(function(item){
+    let promoArrShow =  this.props.items.map(function(item, i){
              return (
-                <div className="vueCodShow">
+                <div  key={i} className="vueCodShow">
                      <div className="vueMesg">
                         <h2> {item.mail} </h2>
                         <p> {item.phone} </p>
@@ -492,9 +491,9 @@ var OrderBox = React.createClass({
       this.check()
         this.summa()
     },
-    render: function(){
+    render: function(i){
         return (
-      <div className="wrapperOrderBlock">
+      <div  key={i} className="wrapperOrderBlock">
         <form id="orderForm">
           <div className="orderBlock">
             <label className="label">Адреса квартири</label>
