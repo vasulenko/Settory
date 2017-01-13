@@ -49,6 +49,11 @@ html body {
 .totop a:hover {
   color: #57a342;
 }
+@media screen and (max-width: 768px) {
+  .totop {
+    display: none;
+  }
+}
 
 .h4_main {
     text-align: center;
