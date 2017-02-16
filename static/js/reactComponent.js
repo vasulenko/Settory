@@ -527,10 +527,50 @@ var OrderBox = React.createClass({
     componentDidMount: function(){
         this.multiCheck();
         this.dataPic();
-        this.time()
+        this.timeCheck();
+        $('#forTime').timepicker('setTime','8:00')
+        /*$('#forTime').timepicker({
+        'timeFormat': 'H:i',
+        'step': 30,
+        'forceRoundTime': true,
+        'show2400' : true,
+        'scrollDefault': 'now',
+        'minTime': '8:00',
+        'maxTime': '19:00'
+        });
+        $('#forTime').timepicker('setTime','8:00')*/
     },
     time : function(){
-        $('#forTime').timepicker({
+        this.timeCheck()
+        
+    },
+    timeCheck:function(){
+        /*var newDate = $("#datapicker1").datepicker("getDate");
+        var currDate = new Date();
+        if(currDate.getDay() == newDate.getDay() && currDate.getMonth() == newDate.getMonth() && currDate.getYear() == newDate.getYear()){
+            var currTime = $('#forTime').timepicker('getTime')
+            var currTime = new Date();
+            console.log('currTime')
+            console.log(currTime)
+            var lime = currTime.getHours();
+            lime += 3;
+            var setTimeVal = lime.toString() + ':00'
+            console.log('setTimeVal')
+            console.log(setTimeVal)
+            $('#forTime').timepicker({
+               'minTime':'setTimeVal', 
+                'timeFormat': 'H:i',
+        'step': 30,
+        'forceRoundTime': true,
+        'show2400' : true,
+        'scrollDefault': 'now',
+        
+        'maxTime': '19:00'
+            }
+        );
+        }
+        else{*/
+            $('#forTime').timepicker({
         'timeFormat': 'H:i',
         'step': 30,
         'forceRoundTime': true,
@@ -540,18 +580,8 @@ var OrderBox = React.createClass({
         'maxTime': '19:00'
         });
         
-        var newDate = $("#datapicker1").datepicker("getDate");
-        var currDate = new Date();
-        if(currDate.getDay() == newDate.getDay() && currDate.getMonth() == newDate.getMonth() && currDate.getYear() == newDate.getYear()){
-            var currTime = $('#forTime').datepicker("getTime")
-            console.log(currTime)
-            currTime.getHours();
-            currTime += 3;
-            var setTimeVal = currTime.toString() + ':00'
-            console.log(setTimeVal)
-            $('#forTime').timepicker('option',{'minTime':setTimeVal}
-        );
-        }
+        /*}*/
+        
     },
     dataPic: function(){
         $("#datapicker1").datepicker({
