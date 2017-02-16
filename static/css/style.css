@@ -1,8 +1,9 @@
- * {
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
-  font-family: 'Ubuntu', sans-serif;
+    font-family: 'Scheherazade', serif;
+  /*font-family: 'Ubuntu', sans-serif;*/
 }
 
 a {
@@ -29,7 +30,7 @@ html body {
   cursor: pointer;
 }
 .totop.active {
-  bottom: 50px;
+  bottom: 150px;
 }
 .totop:after {
   content: '';
@@ -86,19 +87,19 @@ html body {
 .h4_main2 {
     text-align: center;
     font-size: 2em;
-    /*border-bottom: 2px solid #81c8ee;*/
+    /*border-bottom: 2px solid #1f9de0;*/
 }
 .h4_main3 {
     text-align: center;
     font-size:3em;
     margin-top: 2%;
-    background-color: #f4f4f5;
+    /*background-color: #f4f4f5;*/
     padding-top: 3%;
 }
 
 
 #how-it-work, #safety{
-    background-color: #f4f4f5;
+   /* background-color: #f4f4f5;*/
 }
 
 
@@ -111,6 +112,11 @@ html body {
     background-color: white;
     height: 100vh;
     max-height: 1000px;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
 }
 /*.contentText p {
     text-align: center;
@@ -120,20 +126,22 @@ header {
 }
 .navbar {
     width: 100%;
-    /*background-color: #eae9e9;*/
-    background-color: #f4f4f5;
-     /*transition: top 0.3s ease-in-out;*/
+    background-color: #eae9e9;
+   /* background-color: #f4f4f5;
+     transition: top 0.3s ease-in-out;*/
     top: 0;
     z-index: 10;
     min-height:40px;
-    -webkit-transition-duration: .5s;
+    position: fixed;
+    max-height: 65px;
+   /* -webkit-transition-duration: .5s;
     transition-duration: .5s;
     -webkit-transition-timing-function: cubic-bezier( 0.215, 0.610, 0.355, 1.000 );
     transition-timing-function: cubic-bezier( 0.215, 0.610, 0.355, 1.000 );
     -webkit-transition-property: -webkit-transform;
     transition-property: -webkit-transform;
     transition-property: transform;
-    transition-property: transform, -webkit-transform;
+    transition-property: transform, -webkit-transform;*/
 
 }
 .navbar {
@@ -154,6 +162,8 @@ header {
     margin-left: 15%;
     height: 100%;
     max-width: 25%;
+    display: flex;
+    align-items: center;
 }
 .navbarLogo pre {
   line-height: 1.1;
@@ -161,6 +171,8 @@ header {
   font-weight: 900;
   font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
+    color: white;
+    background-color: #eae9e9;
 }
 
 .navbarDownButton {
@@ -221,7 +233,7 @@ header {
   }
 }
 .container {
-  padding: 3rem 1.5rem !important;
+  padding: 75px 1.5rem !important;
 }
 
 .first-screen {
@@ -247,7 +259,7 @@ header {
 
 #sliderTitle {
     margin-top: 0;
-    color: #81c8ee;
+    color: #1f9de0;
 }
 
 .inputHeader {
@@ -255,11 +267,11 @@ header {
 }
 
 .input.is-large:active {
-    border-color: #81c8ee;
+    border-color: #1f9de0;
 }
 
 .input.is-large:focus {
-    border-color: #81c8ee;
+    border-color: #1f9de0;
 }
 
 .wrapperHeaderRightBlock {
@@ -272,12 +284,12 @@ header {
 }
 
 .button.is-large.is-primary, .button.is-large.is-primary:focus,.button.is-large.is-primary:active,.button.is-large.is-primary:visited {
-    background-color: #81c8ee;
+    background-color: #1f9de0;
     opacity: 1;
     height: 60px;
 }
 .button.is-large.is-primary:visited {
-    background-color: #81c8ee;
+    background-color: #1f9de0;
     opacity: 1;
 }
 
@@ -291,14 +303,20 @@ header {
 
     margin-bottom: auto;
 }
-
+.columns .column {
+    padding: 0;
+}
+#why-we .container {
+    padding: 0 !important;
+    width: 100%;
+}
 #why-we hr {
-    border: 2px solid #81c8ee;
+    border: 2px solid #1f9de0;
     width: 20%;
     border-radius: 1px;
 }
 #why-we .mainContentChildImg img{
-  border: 2px solid #81c8ee;
+  /*border: 2px solid #1f9de0;*/
 }
 
 .mainContentChildImg {
@@ -315,7 +333,7 @@ em {
     font-style: normal;
     font-size: 36px;
     margin: 0;
-    color: #81c8ee;
+    color: #1f9de0;
 }
 
 #why-we .mainContentChildText.content p {
@@ -374,11 +392,11 @@ em {
 }
 
 #downButoon .button:hover {
-    color: #81c8ee;
+    color: #1f9de0;
 }
 
 #downButoon .button:active {
-    border-color: #81c8ee;
+    border-color: #1f9de0;
 }
 
 
@@ -424,7 +442,7 @@ em {
     width: 100%;
     height: auto;
  /*   background-color: #eae9e9;
-    background-color: #81c8ee;*/
+    background-color: #1f9de0;*/
     background-color:   #1f9de0;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -483,6 +501,7 @@ em {
         -ms-flex-positive: 1;
             flex-grow: 1;
     margin: 3%;
+    min-width: 150px;
 }
 
 .footerContent .button {
@@ -585,10 +604,10 @@ em {
 }
 
 .control.has-addons .select select {
-    border-color:  #81c8ee;
+    border-color:  #1f9de0;
 }
 .control.has-addons .select:after {
-    border-color:  #81c8ee;
+    border-color:  #1f9de0;
 }
 .download .button {
     width: 25%;
@@ -603,11 +622,11 @@ em {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    color:  #81c8ee;
+    color:  #1f9de0;
     margin-bottom: 4%;
 }
 .footerContent.end a {
-     color:  #81c8ee;
+     color:  #1f9de0;
 }
 
 .wrapperCardBlock {
@@ -628,8 +647,9 @@ em {
    margin-top: 1%;
     margin-left: 5%;
     margin-right: 5%;
-    background-color: #f4f4f5;
+   /* background-color: #f4f4f5;*/
     margin-bottom: 3%;
+    box-shadow: none;
 }
 .media .media-content .title.is-5 {
     width: 100%;
@@ -643,8 +663,8 @@ em {
 .wrapperInfoBlock {
     width: 100%;
     /*margin-bottom: 2%; */
-    border-bottom:2px solid #81c8ee;
-    /*border-top:2px solid #81c8ee;*/
+    border-bottom:2px solid #1f9de0;
+    /*border-top:2px solid #1f9de0;*/
     padding-top: 3%;
     padding-bottom: 10%;
 }
@@ -658,7 +678,7 @@ html body .wrapperInfoBlock .box {
 }
 
 .image.is-64x64  {
-    background-color: #81c8ee;
+    background-color: #1f9de0;
     border-radius: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -782,9 +802,9 @@ html body .wrapperInfoBlock .box {
 .icon.is-large i {
     color: white;
 }
-.icon.is-large i:hover {
+/*.icon.is-large i:hover {
     color:#006bbd;
-}
+}*/
 .footerContentBox .SettoryId:hover {
     color:#006bbd;
 }
@@ -861,7 +881,7 @@ html body .wrapperInfoBlock .box {
         margin-right: auto;
     }
     .mainContentChildImg {
-        width: 70%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0;
@@ -951,12 +971,17 @@ html body .wrapperInfoBlock .box {
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
+        flex-flow: row wrap;
     }
-    .wrapperFooter .footerBlock .iconBlock {
-        display: none;
-    }
+   
     .wrapperCardBlock .card {
-        width: 80%;
+        width: 100%;
+    }
+    .footerContentBox {
+        width: 50%;
+    }
+    .footerContentBox.iconBlock {
+        width: 100%;
     }
 }
 

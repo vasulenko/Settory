@@ -20,9 +20,55 @@ var Example = React.createClass({
         onChange={this.handleChange} />;
   }
 });
+var UserCheck =  React.createClass({
+    render:function(){
+        if(this.props.user == 1 ){
+            return (
+             <div className="nav-right_custom">
+                <a className="nav-item" id="promo">
+                  Промокод
+                </a>
+                <a className="nav-item" id="user">
+                  Користувачі
+                </a>
+                <a className="nav-item"id="order">
+                  Замовлення
+                </a>
+                 <a className="nav-item" id="userOrder">
+                  Ваші прибирання
+                </a>
+                <a className="nav-item" href="../">
+                  Вийти
+                </a>
+            </div>    
+            )
+        }
+        else{
+            return (
+                <div className="nav">
+                <div className="nav-left">
+                <a className="nav-item" href="../">Settory
+                </a>
+          </div>
+            <div className="nav-right_custom">
+                
+                 <a className="nav-item" id="userOrder">
+                  Ваші прибирання
+                </a>
+                <a className="nav-item" href="../">
+                  Вийти
+                </a>
+          </div>
+                </div>
+            )
+        }
+    }
+});
 $(document).ready(function(){
 ReactDOM.render(<OrderBox />, document.getElementById('reactBox'))
 })
+var userBox = 1;
+ReactDOM.render(<UserCheck user={userBox} />,document.getElementById('hederRow'))
 var i = 0;
 var j =0;
 function PromoCod(cof,dTime,mesg) {
@@ -433,6 +479,21 @@ var List = React.createClass({
     }
 });
 var OrderBox = React.createClass({
+    
+    make_pay:function(){
+        console.log('start')
+        var onAjaxSuccess=function(data)
+ {
+ // Здесь мы получаем данные в переменную data
+     console.log(data)
+ $('#form_responce').html(data); //И передаем эту форму в невидимое поле form_responce
+ $('#form_responce form').submit() //Сразу же автоматически сабмитим эту форму, так как всеравно клиент её не видит
+ console.log('toto')
+ }
+        
+ $.get("../payment/makeform.php",{price: $('#price').text()},onAjaxSuccess)
+ 
+    },
     minus1: function(){
     $("input[name='roomQuantity']").val(function(index,newVal){
         if(newVal-1 < 1) return 1
@@ -448,8 +509,25 @@ var OrderBox = React.createClass({
     });
     this.multiCheck()
     },
-    componentDidMount: function(){
+     minus2: function(){
+    $("input[name='bathQuantity']").val(function(index,newVal){
+        if(newVal-1 < 1) return 1
+        else return newVal - 1
+
+            });
         this.multiCheck()
+    },
+    plus2: function(){
+        $("input[name='bathQuantity']").val(function(index,newVal){
+            if(newVal >= 10) return 10
+            else return +newVal +1
+    });
+    this.multiCheck()
+    },
+    componentDidMount: function(){
+        this.multiCheck();
+        this.dataPic();
+        this.time()
     },
     time : function(){
         $('#forTime').timepicker({
@@ -461,13 +539,26 @@ var OrderBox = React.createClass({
         'minTime': '8:00',
         'maxTime': '19:00'
         });
+        
+        var newDate = $("#datapicker1").datepicker("getDate");
+        var currDate = new Date();
+        if(currDate.getDay() == newDate.getDay() && currDate.getMonth() == newDate.getMonth() && currDate.getYear() == newDate.getYear()){
+            var currTime = $('#forTime').datepicker("getTime")
+            console.log(currTime)
+            currTime.getHours();
+            currTime += 3;
+            var setTimeVal = currTime.toString() + ':00'
+            console.log(setTimeVal)
+            $('#forTime').timepicker('option',{'minTime':setTimeVal}
+        );
+        }
     },
     dataPic: function(){
         $("#datapicker1").datepicker({
-            dateFormat: 'dd MM yy'
-
-})
-
+            'dateFormat': 'dd MM yy',
+            'minDate': 0,
+            });
+        $("#datapicker1").datepicker("setDate", new Date());
     },
     summa: function (){
         var sum = 0;
@@ -476,9 +567,14 @@ var OrderBox = React.createClass({
         if($('#3stOpt').prop("checked")) sum += 150
         if($('#4stOpt').prop("checked")) sum += 150
         if($('#5stOpt').prop("checked")) sum += 125
+        if($('#6stOpt').prop("checked")) sum += 150
+        if($('#7stOpt').prop("checked")) sum += 200
+        if($('#8stOpt').prop("checked")) sum += 150
+        if($('#9stOpt').prop("checked")) sum += 50
         sum += $("input[name='roomQuantity']").val()*100 + 400
-         $('#summ').empty()
-        $('#summ').text(sum)
+        sum += ($("input[name='bathQuantity']").val()-1)*100
+         $('#price').empty()
+        $('#price').text(sum)
     },
     check: function(){
          $("input[name='roomQuantity']").val(function(index,newVal){
@@ -507,6 +603,16 @@ var OrderBox = React.createClass({
               </a>
               <input className="input is-expanded" type="text" required maxLength={2} defaultValue={1} name="roomQuantity" min={1} onChange={this.multiCheck}/>
               <a className="button" id="plus" onClick={this.plus1}>
+                +
+              </a>
+            </p>
+            <label className="label">Кількість санвузлів</label>
+            <p className="control has-addons">
+              <a className="button" id="minus1" onClick={this.minus2}>
+                -
+              </a>
+              <input className="input is-expanded" type="text" required maxLength={2} defaultValue={1} name="bathQuantity" min={1} onChange={this.multiCheck}/>
+              <a className="button" id="plus1" onClick={this.plus2}>
                 +
               </a>
             </p>
@@ -540,16 +646,32 @@ var OrderBox = React.createClass({
                 <input type="checkbox" id="5stOpt" onChange={this.summa}/>
                 Прасування
               </label>
+            <label className="checkbox">
+                <input type="checkbox" id="6stOpt" onChange={this.summa}/>
+                Чистка мікрохвільової печі
+              </label>
+            <label className="checkbox">
+                <input type="checkbox" id="7stOpt" onChange={this.summa}/>
+                Прибирання в кухонних шафах
+              </label>
+            <label className="checkbox">
+                <input type="checkbox" id="8stOpt" onChange={this.summa}/>
+                Миття кухонної витяжки
+              </label>
+            <label className="checkbox">
+                <input type="checkbox" id="9stOpt" onChange={this.summa}/>
+                Загрузка однієї партії білизни
+              </label>
             </p>
           </div>
           <div className="orderBox" id="cost">
-            <span>Сума мін. замовлення: &nbsp;&nbsp;</span>
-            <span id="summ"></span>
+            <span>Сума замовлення: &nbsp;&nbsp;</span>
+            <span id="price"></span>
             <p>Ми зв'яжемось з вами за годину до прибирання :)</p>
             <p className="control">
               <input className="input" type="text" placeholder="Промокод,якщо є" />
             </p>
-            <input type="submit" className="button is-info" defaultValue="Забронювати" />
+            <input type="button" onClick={this.make_pay} className="button is-info" defaultValue="Забронювати" />
           </div>
         </form>
       </div>

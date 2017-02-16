@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Scheherazade', serif;
 }
 
 a {
@@ -408,6 +408,9 @@ input[type=checkbox]:checked + label:before {
     -ms-flex-flow: row nowrap;
         flex-flow: row nowrap;
 }
+div.nav{
+    width: 100%;
+}
 .optionArr {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -475,9 +478,9 @@ input[type=checkbox]:checked + label:before {
     .nav-right_custom {
     margin-left: 0;
 }
-    .nav .nav-left {
+   /* .nav .nav-left {
         display: none;
-    }
+    }*/
     .nav .nav-right {
         -webkit-box-pack: start;
             -ms-flex-pack: start;
@@ -490,6 +493,9 @@ input[type=checkbox]:checked + label:before {
 
 }
 @media screen and (max-width:600px){
+    .control .checkbox {
+    margin-bottom: 2%;
+}
     .navText p {
          font-size: 0.65rem;
     }
@@ -514,7 +520,7 @@ input[type=checkbox]:checked + label:before {
         font-size: 0.7rem;
     }
     .nav-item {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
     td {
         font-size: 0.7rem;
@@ -524,7 +530,7 @@ input[type=checkbox]:checked + label:before {
             flex-flow: column nowrap;
     }
     .orderBlock,.orderBox {
-        width: auto;
+        width: 100%;
         margin: 0;
         margin-top: 2%;
         margin-bottom: 2%;
