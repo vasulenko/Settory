@@ -1,4 +1,6 @@
-
+$(document).ready(function(){
+   
+});
 var Example = React.createClass({
   displayName: 'Example',
 
@@ -113,7 +115,77 @@ do {
 while(copyArr[0] !== undefined)
 
 
-
+var Timepick = React.createClass({
+    getInitialState:function(){
+       return{ setTimeVal:'8:00',
+             newDate:new Date()
+             }
+    },
+    componentWillMount:function(){
+        this.getInitialState()
+        this.timeCheck();
+    },
+    timeCheck:function(){
+         $('#forTime').val('')
+        $('#forTime').timepicker({
+            'minTime': this.state.setTimeVal,
+            'timeFormat': 'H:i',
+            'interval': 30,
+            'forceRoundTime': true,
+            'autoclose':false,
+            'show2400' : true,
+            'scrollDefault': 'now',
+            'maxTime': '19:00'
+            });
+            
+        
+    },
+    timepick:function(){
+       $('#forTime').val('')
+        let ab = $("#datapicker1").datepicker('getDate');
+        
+        this.setState({newDate: ab})
+     
+        let currDate = new Date();
+        
+        if(currDate.getDay() == this.state.newDate.getDay() && currDate.getMonth() == this.state.newDate.getMonth() && currDate.getYear() == this.state.newDate.getYear()){
+            
+            var currTime = new Date();
+            var lime = currTime.getHours();
+            lime += 3;
+            if(lime >= 19) {
+                  this.setState({setTimeVal: '8:00'}) ;
+                let a = new Date().valueOf()+24*60*60*1000;
+        $( "#datapicker1" ).datepicker( "setDate",new Date(a))
+       
+            }
+            else {
+                if(lime <= 8){
+                   this.setState({setTimeVal: '8:00'}) ; 
+                   
+                }
+                else{
+               
+                lime = lime + ':00'
+                 
+                 this.setState({setTimeVal: lime}) ;
+  $('#forTime').timepicker('option','minTime',this.state.setTimeVal);
+            }
+        }
+        }
+        else {
+            this.setState({setTimeVal: '8:00'}) ;
+      
+        }
+       this.timeCheck()
+    
+    },
+    render:function(){
+        return(
+        <input className="input timepicker" id="forTime"  onClick={this.timepick} type="text" required />
+        )
+    }
+})
 var ShowOrderWrap = React.createClass({
     render: function(){
         return (
@@ -478,6 +550,7 @@ var List = React.createClass({
   )
     }
 });
+
 var OrderBox = React.createClass({
     
     make_pay:function(){
@@ -493,7 +566,7 @@ var OrderBox = React.createClass({
         
  $.get("../payment/makeform.php",{price: $('#price').text()},onAjaxSuccess)
  
-    },
+    }, 
     minus1: function(){
     $("input[name='roomQuantity']").val(function(index,newVal){
         if(newVal-1 < 1) return 1
@@ -513,12 +586,10 @@ var OrderBox = React.createClass({
     $("input[name='bathQuantity']").val(function(index,newVal){
         if(newVal-1 < 1) return 1
         else return newVal - 1
-
             });
         this.multiCheck()
     },
-    plus2: function(){
-        $("input[name='bathQuantity']").val(function(index,newVal){
+    plus2: function(){  $("input[name='bathQuantity']").val(function(index,newVal){
             if(newVal >= 10) return 10
             else return +newVal +1
     });
@@ -527,68 +598,21 @@ var OrderBox = React.createClass({
     componentDidMount: function(){
         this.multiCheck();
         this.dataPic();
-        this.timeCheck();
-        $('#forTime').timepicker('setTime','8:00')
-        /*$('#forTime').timepicker({
-        'timeFormat': 'H:i',
-        'step': 30,
-        'forceRoundTime': true,
-        'show2400' : true,
-        'scrollDefault': 'now',
-        'minTime': '8:00',
-        'maxTime': '19:00'
-        });
-        $('#forTime').timepicker('setTime','8:00')*/
-    },
-    time : function(){
-        this.timeCheck()
+         let a = new Date().valueOf()+24*60*60*1000;
+        $( "#datapicker1" ).datepicker( "setDate",new Date(a))
         
     },
-    timeCheck:function(){
-        /*var newDate = $("#datapicker1").datepicker("getDate");
-        var currDate = new Date();
-        if(currDate.getDay() == newDate.getDay() && currDate.getMonth() == newDate.getMonth() && currDate.getYear() == newDate.getYear()){
-            var currTime = $('#forTime').timepicker('getTime')
-            var currTime = new Date();
-            console.log('currTime')
-            console.log(currTime)
-            var lime = currTime.getHours();
-            lime += 3;
-            var setTimeVal = lime.toString() + ':00'
-            console.log('setTimeVal')
-            console.log(setTimeVal)
-            $('#forTime').timepicker({
-               'minTime':'setTimeVal', 
-                'timeFormat': 'H:i',
-        'step': 30,
-        'forceRoundTime': true,
-        'show2400' : true,
-        'scrollDefault': 'now',
-        
-        'maxTime': '19:00'
-            }
-        );
-        }
-        else{*/
-            $('#forTime').timepicker({
-        'timeFormat': 'H:i',
-        'step': 30,
-        'forceRoundTime': true,
-        'show2400' : true,
-        'scrollDefault': 'now',
-        'minTime': '8:00',
-        'maxTime': '19:00'
-        });
-        
-        /*}*/
-        
+    timepick:function(){
+        console.log('time');
+      
     },
-    dataPic: function(){
+    dataPic: function(inter = 0){
         $("#datapicker1").datepicker({
             'dateFormat': 'dd MM yy',
-            'minDate': 0,
+            'minDate': inter,
             });
-        $("#datapicker1").datepicker("setDate", new Date());
+        $('#forTime').val('')
+        
     },
     summa: function (){
         var sum = 0;
@@ -648,11 +672,11 @@ var OrderBox = React.createClass({
             </p>
             <label className="label">На яку дату?</label>
             <p className="control">
-             <input type="text" className="input" id="datapicker1" required onClick={this.dataPic} />
+             <input type="text" className="input" id="datapicker1" required onChange={this.timepick} onClick={this.dataPic} />
             </p>
-            <label className="label">На який час?</label>
+            <label className="label" id="time">На який час?</label>
             <p className="control">
-              <input className="input" id="forTime" onClick={this.time} type="text" required />
+              < Timepick />
             </p>
             <label className="label">Додаткові опції</label>
             <p className="control checkBoxBox">
